@@ -1,15 +1,15 @@
 {
   "name": "contact_book",
   "version": "1.0.0",
-  "description": "A contact book application utilizing HTML, CSS, Bootstrap, and JQuery",
+  "description": "A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 7000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/njteam-udacity/contact_book.git",
-    "start": "http-server -p 7000"
+    "url": "git+https://github.com/njteam-udacity/contact_book.git"
   },
   "keywords": [
     "HTML",

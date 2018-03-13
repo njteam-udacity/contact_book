@@ -1,5 +1,5 @@
 # contact_book
-A contact book application utilizing HTML, CSS, Bootstrap, and JQuery.
+A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 
 ## Initial Set up
 Clone the repo:
@@ -10,9 +10,13 @@ Checkout develop branch:
 Create feature branch (feature/name of feature) from the develop branch:
  - `$ git create feature/create-navigation-menu`
 
+Checkout feature branch (feature/name of feature):
+ - `$ git checkout feature/create-navigation-menu`
+
 Install application dependencies:
 - Download/install node.js LTS (recommended):https://nodejs.org/en/download/
-- `$ npm install`
+  - Run npm install:
+    - `$ npm install`
 
 Start the server:
 - `$ npm start`
@@ -33,4 +37,5 @@ Start the server:
 ├── index.html
 ├── package.json
 └── README.md
+
 ```
