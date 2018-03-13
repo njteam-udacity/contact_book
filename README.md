@@ -2,6 +2,7 @@
 A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 
 ## Initial Set up
+
 ### Clone the repo:
  1. $ git clone < YOURTEAMREPO >
  2. $ git checkout develop
@@ -30,7 +31,7 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 > **Example**
 > - git create branch feature-navigationBar-#5
 
-Install application dependencies:
+### Install application dependencies:
 - Download/install node.js LTS (recommended):https://nodejs.org/en/download/
   - Run npm install:
     - `$ npm install`
@@ -55,6 +56,7 @@ Install application dependencies:
 └── README.md
 
 ```
+
 ## Working on your Branch
 
 - Always do a git pull to make sure you are working on the latest code
@@ -68,7 +70,7 @@ Install application dependencies:
 2. $ git pull origin development  
 3.  $ git checkout < BRANCHNAME >
 
- ### Pushing your Commits
+### Pushing your Commits
 1. $ git checkout development  
 2. $ git pull origin development  
 3. $ git checkout < BRANCHNAME >
