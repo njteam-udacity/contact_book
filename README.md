@@ -8,6 +8,7 @@ Clone the repo:
  - $ git checkout <feature/[name of feature || ticket name from Waffle.io]>
 
 Install application dependencies:
+- Download/install node.js LTS (recommended):https://nodejs.org/en/download/
 - $ npm install
 
 Start the server:
@@ -15,15 +16,14 @@ Start the server:
 
 ## Initial file structure
 ```
-.
-├── assets
+
+── assets
 |    ├── audio
 |    ├── images
 |    ├── styles
 |    └── scripts
 ├── data
 |    └── content.json
-├── node_modules
 ├── .gitignore
 ├── favicon.ico
 ├── index.html
