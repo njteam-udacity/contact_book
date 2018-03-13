@@ -7,6 +7,7 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
  2. $ git checkout develop
  3. $ git branch -b < BRANCHNAME >
      - this creates the branch and immediately checks out the branch
+     - see below for branch naming convention
 
 > **Branch Naming Convention**
 > - Branch names consists of 3 elements
@@ -28,9 +29,6 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 >
 > **Example**
 > - git create branch feature-navigationBar-#5
-
-Checkout feature branch (feature/name of feature):
- - `$ git checkout feature/create-navigation-menu`
 
 Install application dependencies:
 - Download/install node.js LTS (recommended):https://nodejs.org/en/download/
@@ -57,3 +55,22 @@ Install application dependencies:
 └── README.md
 
 ```
+## Working on your Branch
+
+- Always do a git pull to make sure you are working on the latest code
+- Always work on your branch
+- Commit often 
+	- make atomic commits 
+	- this makes it easier to revert to an older version without losing a lot of work
+
+### Steps to take when working on your Branch
+1. $ git checkout development  
+2. $ git pull origin development  
+3.  $ git checkout < BRANCHNAME >
+
+ ### Pushing your Commits
+1. $ git checkout development  
+2. $ git pull origin development  
+3. $ git checkout < BRANCHNAME >
+4. $ git merge development  
+5. $ git push origin < BRANCHNAME >
