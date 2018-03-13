@@ -4,7 +4,6 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JQuery.
 ## Initial Set up
 Clone the repo:
  - `$ git clone https://github.com/njteam-udacity/contact_book.git`
- - 
 Checkout develop branch:
  - `$ git checkout develop`
 
