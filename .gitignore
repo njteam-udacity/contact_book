@@ -1,0 +1,9 @@
+# Include your project-specific ignores in this file
+#This should primarily be used to avoid certain project-level files and directories from
+being kept under source control.
+
+OS-specific and editor-specific files should be ignored using a "global
+ignore" that applies to all repositories on your system.
+
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+# Useful .gitignore templates: https://github.com/github/gitignore

@@ -1,0 +1,10 @@
+{ 
+    "contactList": [
+        {
+            "name": "example",
+            "email": "example@example.com",
+            "avatar": "myexample.png",
+            "id": "00000000001"
+        }
+    ]
+}
