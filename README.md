@@ -27,5 +27,6 @@ Start the server:
 ├── .gitignore
 ├── favicon.ico
 ├── index.html
+├── package.json
 └── README.md
 ```
