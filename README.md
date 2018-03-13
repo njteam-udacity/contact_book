@@ -3,16 +3,21 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JQuery.
 
 ## Initial Set up
 Clone the repo:
- - $ git clone <YOURTEAMREPO>
- - $ git create branch <feature/[name of feature || ticket name from Waffle.io]>
- - $ git checkout <feature/[name of feature || ticket name from Waffle.io]>
+ - `$ git clone https://github.com/njteam-udacity/contact_book.git`
+ - 
+Checkout develop branch:
+ - `$ git checkout develop`
+
+Create feature branch (feature/name of feature) from the develop branch:
+ - `$ git create feature/create-navigation-menu`
 
 Install application dependencies:
 - Download/install node.js LTS (recommended):https://nodejs.org/en/download/
-- $ npm install
+- `$ npm install`
 
 Start the server:
-- $ npm start
+- `$ npm start`
+- Application runs on http://localhost:7000/
 
 ## Initial file structure
 ```
