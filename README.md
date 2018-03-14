@@ -49,6 +49,8 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 |    └── scripts
 ├── data
 |    └── content.json
+├── templates
+|    └── templates.html
 ├── .gitignore
 ├── favicon.ico
 ├── index.html
