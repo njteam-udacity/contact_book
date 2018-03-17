@@ -1,6 +1,6 @@
 {
-    "application" :{
-        "name" : "Our Application",
-        "title": "Our Title"
+    "application" : {
+        "name" : "NJ Contact Book",
+        "title": "Welcome to our Contact Book"
     }
 }
