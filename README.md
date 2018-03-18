@@ -6,7 +6,7 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 ### Clone the repo:
  1. $ git clone < YOURTEAMREPO >
  2. $ git checkout develop
- 3. $ git branch -b < BRANCHNAME >
+ 3. $ git checkout -b < BRANCHNAME >
      - this creates the branch and immediately checks out the branch
      - see below for branch naming convention
 
@@ -29,7 +29,7 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 > - Use camel case for feature names
 >
 > **Example**
-> - git create branch feature-navigationBar-#5
+> - git checkout -b feature-navigationBar-#5
 
 ### Install application dependencies:
 - Download/install node.js LTS (recommended):https://nodejs.org/en/download/
@@ -70,7 +70,7 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 ### Steps to take when working on your Branch
 1. $ git checkout development  
 2. $ git pull origin development  
-3.  $ git checkout < BRANCHNAME >
+3. $ git checkout < BRANCHNAME >
 
 ### Pushing your Commits
 1. $ git checkout development  
