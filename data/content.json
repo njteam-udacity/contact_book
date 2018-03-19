@@ -1,6 +1,7 @@
 {
-    "application" : {
-        "name" : "NJ Contact Book",
-        "title": "Welcome to our Contact Book"
+    "welcome-page" : {
+        "header": "Welcome to our Contact Book",
+        "main-section": "Add content for our application!",
+        "footer": "Udacity Grow With Google NJ Team"
     }
 }

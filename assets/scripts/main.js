@@ -21,7 +21,7 @@ function initializeApplication() {
  * Utilize handlebars templating to bind an html template with 
  * content data, then used jQuery to render the page view.
  * @param {string} html fragment/template
- * @param {object{}} Object containing content data. 
+ * @param {object} Object containing content data. 
  */
 
 function renderPage(source, data) {
@@ -30,8 +30,6 @@ function renderPage(source, data) {
     var html = template(data.content);
 
     $("body").html(html);
-
-    
 
 }
 
