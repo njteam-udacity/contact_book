@@ -3,61 +3,87 @@ function initializeApplication() {
     var templates = {}, //An object that will contain all of our html templates.
         content = {} //An object that will contain our content.
 
-    getData("../templates/", ".html", ["welcome", "slideshow"], function (tpls) {
+    getText("../templates/", ".html", ["welcome", "slideshow"], function(error, tpls) {
+
+        if (error) return console.log(error);
+
         templates = tpls;
 
-        getData("../data/", ".json", ["content", "contacts"], function (data) {
+        getText("../data/", ".json", ["content", "contacts"], checkForError(function(data) {
             content = parseJSON(data);
-            renderLandingPage(templates, content);
-        });
+            renderPage(templates.welcome, content);
+        }));
 
     })
 }
 
-function renderLandingPage(templates, data) {
+/**
+ * Utilize handlebars templating to bind an html template with 
+ * content data, then used jQuery to render the page view.
+ * @param {string} html fragment/template
+ * @param {object{}} Object containing content data. 
+ */
 
-    $("body").html(templates.welcome);
-    $(".title").html(data.content.application.title);
+function renderPage(source, data) {
+
+    var template = Handlebars.compile(source);
+    var html = template(data.content);
+
+    $("body").html(html);
+
+    
 
 }
 
 /** 
- * Function that gathers data needed for the website
- * @param {string}  url path to templates folder
- * @param {string}  dataType string file type.
- * @param {array}   array of strings (template names)
+ * Gathers data needed for the website
+ * @param {string}  basePath path to templates folder. Must end with a 
+ *                  forward slash character (/)
+ * @param {string}  extension string file type.
+ * @param {string[]}  filenames of file names.
  * @param {function} "callback" handler function   
  */
-function getData(url, dataType, array, callback) {
-
+function getText(basePath, extension, filenames, callback) {
+    
     var contentMap = {}, //object containing all of the templates
         i = 0; //iterator
 
     function loop(name) {
+
         i += 1;
 
-        ajaxRequest("GET", url + name + dataType, function (e) {
+        var filepath = basePath + name + extension;
 
-            contentMap[name] = e.target.status === 200 ? e.target.responseText : null;
-            next();
-        })
+        ajaxRequest("GET", filepath, function(e) {
 
-    }
-
-    function next() {
-        if (array) {
-            try {
-                if (i < array.length) {
-                    loop(array[i]);
-                } else {
-                    callback(contentMap);
-                }
-            } catch (error) {
-                console.error(error);
+            if (e.target.status !== 200) {
+                return next(new Error('Could not load the file "' +
+                    filepath + '" from the server!'));
             }
-        }
+
+            contentMap[name] = e.target.responseText;
+            next();
+            
+        });
+
     }
+
+    function next(error) {
+        
+        if (error) {
+            return callback(error);
+        }
+
+        if (i < filenames.length) {
+            loop(filenames[i]);
+        } else {
+            callback(null, contentMap);
+        }
+        
+    }
+
     next();
+
 }
 
 function ajaxRequest(method, url, callback) {
@@ -82,6 +108,20 @@ function parseJSON(dataObj) {
     } catch (error) {
         console.error(error);
     }
+}
+
+function checkForError(callback) {
+
+    return function(possibleError, expectedValue) {
+
+        if (possibleError) {
+            return console.error(possibleError);
+        }
+
+        callback(expectedValue);
+
+    }
+
 }
 
 $(document).ready(function () {
