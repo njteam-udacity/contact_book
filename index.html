@@ -6,36 +6,43 @@
         <meta name="description" content="Address Book Application">
         <meta name="keywords" content="HTML, CSS, XML, JavaScript">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/assets/styles/vendors/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/styles/vendors/font-awesome.css">
-        <link rel="stylesheet" href="/assets/styles/main.css">
+        <link rel="stylesheet" href="assets/styles/vendors/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/styles/vendors/font-awesome.css">
+        <link rel="stylesheet" href="assets/styles/main.css">
+        <link rel="stylesheet" href="assets/styles/welcome.css">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+
         <script src="/assets/scripts/vendors/jquery-3.2.1.min.js"></script>
         <script src="/assets/scripts/vendors/handlebars-v4.0.11.js"></script>
         <script src="/assets/scripts/main.js"></script>
     </head>
     <body>
 
-        <header>
-            <nav class="main">
-                <img id="logo" src="#">
-                <ul>
-                    <li>About Us</li>
-                    <li>Contact Book</li>
-                </ul>
-            </nav>
-        </header>
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-address-book"></a></i>
+                        </li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Book</a></li>
+                    </ul>
+                </nav>
+            </header>
 
-        <section>
-            <div>
-                <h1>Address Book</h1>
-                <input type="search" name="search" placeholder="Search">
-                <p>This project was code with <pre>[coffee]</pre> and  <pre>[music] by a team of 7 Grow with Google Udacity Scholars</pre></p>
-            </div>
-        </section>
+            <section class="main">  
+                <div class="headline">
+                    <h1>Contact Book</h1>
+                    <input type="search" name="search" placeholder="Search">
+                    <p>This project was code with <code>[coffee]</code> and  <code>[music]</code> by a team of 7 Grow with Google Udacity Scholars</p>
+                </div>
+                <img src="assets/images/main-image-phone.jpg" width="100%">
+            </section>
 
-        <footer>
-         GwG Udacity | NJ Group &copy; 2018
-        </footer>
+            <footer>
+                GwG Udacity | NJ Group &copy; 2018
+            </footer>
 
     </body>
 </html>
