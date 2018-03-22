@@ -72,9 +72,9 @@ div.headline {
 	width: 500px;
 	position: absolute;
 	text-align: left;
-	top: 26%;
+	top: 24%;
 	left: 35%;
-	font-size: 18px;
+	font-size: 21px;
 }
 
 .headline h1 {
@@ -84,13 +84,14 @@ div.headline {
 }
 
 .headline input {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	border: 0;
 	border-radius: 12px;
 	width: 100%;
 	background-color: #d1ccc0;
 	padding: 12px 20px; 
 	font-size: 20px;
+	text-align: center;
 }
 
 code {
