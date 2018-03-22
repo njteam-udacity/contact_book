@@ -3,7 +3,7 @@ function initializeApplication() {
     var templates = {}, //An object that will contain all of our html templates.
         content = {} //An object that will contain our content.
 
-    getText("../templates/", ".html", ["welcome", "slideshow"], function(error, tpls) {
+    getText("../templates/", ".html", ["welcome", "footer", "header"], function(error, tpls) {
 
         if (error) return console.log(error);
 
@@ -11,7 +11,10 @@ function initializeApplication() {
 
         getText("../data/", ".json", ["content", "contacts"], checkForError(function(data) {
             content = parseJSON(data);
+            
+            renderPage(templates.header, content);
             renderPage(templates.welcome, content);
+            renderPage(templates.footer, content);
         }));
 
     })
@@ -29,7 +32,7 @@ function renderPage(source, data) {
     var template = Handlebars.compile(source);
     var html = template(data.content);
 
-    $("body").html(html);
+    $("body").append(html);
 
 }
 
