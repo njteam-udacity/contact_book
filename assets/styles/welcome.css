@@ -35,6 +35,8 @@ header {
 	position: fixed;
 	top: 0;
 	font-size: 18px;
+	max-height: 100px;
+	box-sizing: border-box;
 }
 
 nav ul {
@@ -42,8 +44,6 @@ nav ul {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
-
 }
 
 .fa-address-book {
@@ -63,10 +63,11 @@ section {
 	left: 0;
 }
 
-section img {
-	width: 100%;
+section.main.img {
+	background: url("/assets/images/main-image-phone.jpg") no-repeat;
+	background-size: 100% 80%;
 }
-
+ 
 div.headline {
 	height: 100%;
 	width: 500px;
@@ -111,4 +112,6 @@ footer {
 	justify-content: flex-start;
 	align-items: center;
 	font-size: 15px;
+	max-height: 100px;
+	box-sizing: border-box;
 }
