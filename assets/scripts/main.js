@@ -1,4 +1,4 @@
-// (function () {
+(function () {
      /**
      * @type {[key: string]: object}
      */
@@ -160,9 +160,8 @@
         }
     }
 
-    $(document).ready(function () {
-        
+    $(document).ready(function () { 
         initializeApplication();
     });
 
-// });
+})();
