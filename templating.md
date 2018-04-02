@@ -84,7 +84,7 @@ Now every time the template function gets called with data, the resulting interp
 
 ```
   templateFunc = function (data) {
-    return "<h1>" + data.greeting +  data.user-details.name + "</h1>\n" + "<p>" + data.message + "</p>";
+    return "<h1>" + data.greeting +  data.user-details.name + "</h1>" + <hr/> + "<p>" + data.message + "</p>";
 }
 ```
 
