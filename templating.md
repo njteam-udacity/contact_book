@@ -5,8 +5,8 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 ## Resources: 
 + [http://handlebarsjs.com/](http://handlebarsjs.com/)
 + [An Introduction to Handlebars.js](https://www.youtube.com/watch?v=SPaw1ETzS2c)
-+ [Html fragments](http://www.jafsoft.com/doco/tag_manual_3.html)
-+ [handlebarsjs builtin_helpers](https://handlebarsjs.com/builtin_helpers.html)
++ [Html Fragments](http://www.jafsoft.com/doco/tag_manual_3.html)
++ [Handlebars Builtin Helpers](https://handlebarsjs.com/builtin_helpers.html)
 
 
 ### The steps below are instructions for integrating templates in our application.
@@ -91,18 +91,30 @@ Once you have the template, the next step is the interesting part. We call the *
 ```
 <!--Sidenote: We use AJAX to obtain the html text from the greeting.html file and assign that html text to the "source" variable -->
 
-var source = " <h1>{{greeting}}  {{name}}</h1>
+var source = " <h1>{{greeting}}  {{user-details.name}}</h1>
             <p>{{message}} </p>";
 
 var templateFunc = Handlebars.compile(source);
 ```
 
+
 Now every time the template function gets called with data, an interpolated string will be returned.
+- example content data: 
+```
+    {
+     "greeting" : "Hello",
+     "user-details" : {
+                        "name"  : "Sharon",
+                        "email" : "sharon@demo.com"
+                       },
+     "message" : "Your invited out for tacos tomorrow night."
+    }
+```
+- example template function signature:
 
 ```
-<!-- High level example of the "templateFunc" signature -->
   templateFunc = function (data) {
-    return "<h1>" + data.greeting +  data.name + "</h1>\n" + "<p>" + data.message + "</p>";
+    return "<h1>" + data.greeting +  data.user-details.name + "</h1>" + <hr/> + "<p>" + data.message + "</p>";
 }
 ```
 
@@ -112,7 +124,9 @@ Then we capture the return value *string* from "templateFunc" and append it to t
 var result = templateFunction(dataObj);
 
 document.body.appendChild(result);
+
 ```
-Next, the output to the DOM would be:
+
+Next, the example output to the DOM would be:
 # Hello Team
 Tomorrow we are invited out for tacos.
