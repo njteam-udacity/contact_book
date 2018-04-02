@@ -1,6 +1,6 @@
 # Templating
 Guide on moving static html files into dynamic templates utilizing handlebars.
-This DRY approach to creating html pages will help minimize the number of DOM api calls to interpolate text-to-template and reuse blocks of html code throughout an application.
+This DRY approach to creating html pages will help minimize the number of DOM api calls to interpolate text-to-template and reuse blocks of html code throughout the application.
 
 ## Resources: 
 + [http://handlebarsjs.com/](http://handlebarsjs.com/)
@@ -61,7 +61,7 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
         "content" : ["global", "welcome", "greeting"]
         }
         ```
-5. Lastly, save your css file under the styles folder and your script file under the scripts folders respectively with a name appropriate to the template that you are working on.
+5. Lastly, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
     - example: **assets/styles/greetings.css**
     - example: **assets/scripts/greetings.js**
 
@@ -128,6 +128,6 @@ document.body.appendChild(result);
 
 ```
 
-Next, the example output to the DOM would be:
+The example output to the DOM would be:
 # Hello Team
 Tomorrow we are invited out for tacos.
