@@ -64,7 +64,7 @@
      */
 
     function renderPage(templates, data) {
-      debugger;
+        
         $("body").append(templates.welcome(data));
       
     }
