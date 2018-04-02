@@ -65,7 +65,7 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
     - example: **styles/greetings.css**
 
 6. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
-"{{#each}}" an {{#if}} that can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
+"{{#each}}" and {{#if}} that can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
 
 ## How it all works!
 We created an html template of an html component or page and stored it in a separate file under the templates folder. (e.g: templates/greeting.html)
