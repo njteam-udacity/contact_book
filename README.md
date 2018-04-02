@@ -42,20 +42,29 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 ### Initial file structure
 ```
 
-── assets
-|    ├── audio
-|    ├── images
-|    ├── styles
-|    └── scripts
-├── data
-|    └── content.json
-├── templates
+── assets/
+|    ├── audio/
+|    ├── images/
+|    ├── scripts/
+|    └── styles/
+├── content/
+|    └── en/
+|         └──content.json
+├── data/
+|    └── contacts.json
+├── templates/
+|    ├── partials/
+|    |       └── shared.html
+|    |
 |    └── templates.html
 ├── .gitignore
+├── config.json
 ├── favicon.ico
 ├── index.html
+├── package-lock.json
 ├── package.json
-└── README.md
+├── README.md
+└── templating.md
 
 ```
 
