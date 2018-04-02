@@ -1,6 +1,6 @@
 # Templating
 Guide on moving static html files into dynamic templates utilizing handlebars.
-This DRY approach to creating html pages will help minimize the number of DOM api calls to interpolate text-to-tempalte and reuse blocks of html code throughout an application.
+This DRY approach to creating html pages will help minimize the number of DOM api calls to interpolate text-to-template and reuse blocks of html code throughout an application.
 
 ## Resources: 
 + [http://handlebarsjs.com/](http://handlebarsjs.com/)
@@ -19,18 +19,20 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 
     -  *Tip*: If you are creating a partial (a component of a page) it should be      saved under the folder "template/partial" with the appropriate name.
 
-2. Replace any static html content with a handlebars tags.
+2. Replace any static html content with handlebars tags.
     - example static html:
       ```
       <h1>Hello Team</h1>
       <p>Tomorrow we are invited out for tacos.</p>
       ```  
-    - example html with handlebars tags for interpolation:
+    - example html using handlebars tags for interpolation:
       ```
       <h1>{{greeting}} {{name}}</h1>
       <p>{{message}}</p>
       ```
-3. Save content/text as a json file under the content folder:
+    - *Tip*: Use handlebars escape tags {{{ escape tag }}} (three pairs of curly braces) if you intend for the output to be interpreted as html.
+
+3. Save content as a json file under the content folder:
    - example file path: **content/en/greetings.json**
    - example JSON file:
       ```
@@ -41,10 +43,10 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
         }
       ```
    -  *Tip*: If your content is for a partial it should be saved in global.json.
-4. Register your template/partial and register your content.
+
+4. Register your template or partial and register your content.
     
-    
-    1. Edit the config.json file to include your content and template file names.
+    - Edit the config.json file to include your content and template file names.
       - Example **before** adding the "greeting" template file names:
         ```
         {
@@ -78,17 +80,16 @@ We created an html template of an html component or page and stored it in a sepa
 ```
 
 - Notice that our demo greeting.html template does not have an `<html>` or `<body>` parent element.
-  This technique is intended so that we can dynamically append templates to the DOM during run-time and change views after
-  handlebars interpolates. (merge the content with the template)
+  This technique is intended so that we can dynamically append templates to the DOM during run-time.
   This demo template itself, is just a pair of header tags with a greeting inside followed by a pair of paragraph tags with a message inside.
   
 - Also, notice the two pairs of curly braces inside the html tags. They are handlebars tags used to signify a dynamic point in the template where Handlebars will insert some content.
 
 
-Once you have the template, the next step is the interesting part; Call the **Handlebars compile** function to process the template *source*. **Handlebars compile** returns a function that accepts a data object as its parameter.
+Once you have the template, the next step is the interesting part. We call the **Handlebars compile** function to process the template *source*. **Handlebars compile** returns a function that accepts a data object as its parameter.
 
 ```
-<!-- We will use a javascript call to obtain the html text from the greeting.html file and assign that html text to the "source" variable -->
+<!--Sidenote: We use AJAX to obtain the html text from the greeting.html file and assign that html text to the "source" variable -->
 
 var source = " <h1>{{greeting}}  {{name}}</h1>
             <p>{{message}} </p>";
@@ -96,7 +97,7 @@ var source = " <h1>{{greeting}}  {{name}}</h1>
 var templateFunc = Handlebars.compile(source);
 ```
 
-Now every time the template function gets called with data, the resulting interpolated string will be returned.
+Now every time the template function gets called with data, an interpolated string will be returned.
 
 ```
 <!-- High level example of the "templateFunc" signature -->
@@ -105,13 +106,13 @@ Now every time the template function gets called with data, the resulting interp
 }
 ```
 
-Then we capture the return value *string* from "templateFunc" and append it to the body or any other element in the DOM view.
+Then we capture the return value *string* from "templateFunc" and append it to the DOM body or any other element in the DOM view.
 
 ```
 var result = templateFunction(dataObj);
 
 document.body.appendChild(result);
 ```
-The output to the DOM would be:
+Next, the output to the DOM would be:
 # Hello Team
 Tomorrow we are invited out for tacos.
