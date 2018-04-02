@@ -1,6 +1,6 @@
 # Templating
 Guide on moving static html files into dynamic templates utilizing handlebars.
-This DRY approach to creating html pages will help minimize the number of DOM api calls to interpolate text-to-tempalte and reuse blocks of html code throughout an application.
+This DRY approach to creating html pages will help minimize the number of DOM api calls to interpolate text-to-template and reuse blocks of html code throughout an application.
 
 ## Resources: 
 + [http://handlebarsjs.com/](http://handlebarsjs.com/)
