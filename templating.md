@@ -5,8 +5,8 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 ## Resources: 
 + [http://handlebarsjs.com/](http://handlebarsjs.com/)
 + [An Introduction to Handlebars.js](https://www.youtube.com/watch?v=SPaw1ETzS2c)
-+ [Html fragments](http://www.jafsoft.com/doco/tag_manual_3.html)
-+ [handlebarsjs builtin_helpers](https://handlebarsjs.com/builtin_helpers.html)
++ [Html Fragments](http://www.jafsoft.com/doco/tag_manual_3.html)
++ [Handlebars Builtin Helpers](https://handlebarsjs.com/builtin_helpers.html)
 
 
 ### The steps below are instructions for integrating templates in our application.
@@ -26,8 +26,8 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
       ```
       <h1>{{team-greeting}}</h1>
       ```
-3. Save content/text in the content.json file under the data folder.
-   - example file data/greetings.json
+3. Save content/text in the content file under the data folder.
+   - example file data/content.json
       ```
         {
           "team-greeting": "Hello Team"
@@ -60,27 +60,46 @@ Create an html template (example below) of an html component or page and store i
 Once you have the template, the next step is the interesting part; Call the **Handlebars compile** function to process the template *source*. **Handlebars compile**  returns a function that accepts a data object as its parameter.
 
 ```
-<!-- We will use an javascript call to obtain the html text from the greeting.html file and assign that value to the "source" variable -->
+<!-- We will use an javascript ajax call to obtain the html text from the greeting.html file and assign that value to the "source" variable -->
 
-var source = " <h1>{{greeting}}  {{name}}</h1>
+var source = " <h1>{{greeting}}  {{user-details.name}}</h1>
             <p>{{message}} </p>";
 
 var templateFunc = Handlebars.compile(source);
 ```
 
 Now every time the template function gets called with data, the resulting interpolated string will be returned.
+- example content data: 
+```
+    {
+     "greeting" : "Hello",
+     "user-details" : {
+                        "name"  : "Sharon",
+                        "email" : "sharon@demo.com"
+                       },
+     "message" : "Your invited out for tacos tomorrow night."
+    }
+```
+- example template function signature:
 
 ```
-<!-- High level example of the "templateFunc" signature -->
   templateFunc = function (data) {
-    return "<h1>" + data.greeting +  data.name + "</h1>\n" + "<p>" + data.message + "</p>";
+    return "<h1>" + data.greeting +  data.user-details.name + "</h1>\n" + "<p>" + data.message + "</p>";
 }
 ```
 
-Then we capture the return value *string* from "templateFunc" and append it to the body or any other element in the DOM view.
+Then we capture the return value type: *string* from "templateFunc" and append it to the body or any other element in the DOM view.
 
 ```
 var result = templateFunction(dataObj);
 
 document.body.appendChild(result);
+
 ```
+- example output to the DOM:
+
+# Hello Sharon
+  Your invited out for tacos tomorrow night.
+
+
+
