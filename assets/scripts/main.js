@@ -15,7 +15,13 @@
             
             getText("/templates/", ".html", config.templates, function(error, fileContents) {
                  
-                if (error) return console.log(error);
+                // if there is an error
+                if (error) {
+                    // deal with the error
+                    console.error(error);
+                    // and exit.
+                    return;
+                }
 
                 templates = {};
 
@@ -41,13 +47,21 @@
 
                 }
 
-                getText("/content/en/", ".json", config.content, checkForError(function(data) {
+                getText("/content/en/", ".json", config.content, function(error, data) {
+
+                    // if there is an error
+                    if (error) {
+                        // deal with the error
+                        console.error(error);
+                        // and exit.
+                        return;
+                    }
         
                     content = parseJSON(data);
                 
                     renderPage(templates, content);
         
-                }));
+                });
                 
             });
 
@@ -91,12 +105,13 @@
             ajaxRequest("GET", filepath, function(e) {
 
                 if (e.target.status !== 200) {
-                    return next(new Error('Could not load the file "' +
+                    next(new Error('Could not load the file "' +
                         filepath + '" from the server!'));
+                    return;
                 }
 
                 contentMap[name] = e.target.responseText;
-                next();
+                next(/*There is no error to pass here*/null);
                 
             });
 
@@ -105,18 +120,19 @@
         function next(error) {
             
             if (error) {
-                return callback(error);
+                callback(error);
+                return;
             }
 
             if (i < filenames.length) {
                 loop(filenames[i]);
             } else {
-                callback(null, contentMap);
+                callback(/*There is no error to pass here*/null, contentMap);
             }
             
         }
 
-        next();
+        next(/*There is no error to pass here*/null);
 
     }
 
@@ -142,20 +158,6 @@
         } catch (error) {
             console.error(error);
         }
-    }
-
-    function checkForError(callback) {
-
-        return function(possibleError, expectedValue) {
-
-            if (possibleError) {
-                return console.error(possibleError);
-            }
-
-            callback(expectedValue);
-
-        }
-
     }
 
     $(document).ready(function () {
