@@ -61,8 +61,9 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
         "content" : ["global", "welcome", "greeting"]
         }
         ```
-5. Lastly, save your css under the styles folder with a name appropriate to the template that you are working on.
-    - example: **styles/greetings.css**
+5. Lastly, save your css file under the styles folder and your script file under the scripts folders respectively with a name appropriate to the template that you are working on.
+    - example: **assets/styles/greetings.css**
+    - example: **assets/scripts/greetings.js**
 
 6. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
 "{{#each}}" and {{#if}} that can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
