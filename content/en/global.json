@@ -1,0 +1,11 @@
+{
+    "header" : {
+        "nav-home": "home",
+        "nav-about": "About",
+        "nav-contact": "Contact Book"
+    },
+    "footer" : {
+        "message": "GwG Udacity | NJ Group &copy; 2018" 
+    }
+    
+}
