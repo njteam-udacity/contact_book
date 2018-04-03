@@ -20,12 +20,12 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
     -  *Tip*: If you are creating a partial (a component of a page) it should be      saved under the folder "template/partial" with the appropriate name.
 
 2. Replace any static html content with handlebars tags.
-    - example static html:
+    - Example static html:
       ```
       <h1>Hello Team</h1>
       <p>Tomorrow we are invited out for tacos.</p>
       ```  
-    - example html using handlebars tags for interpolation:
+    - Example html using handlebars tags for interpolation:
       ```
       <h1>{{greeting}} {{name}}</h1>
       <p>{{message}}</p>
@@ -33,8 +33,8 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
     - *Tip*: Use handlebars escape tags {{{ escape tag }}} (three pairs of curly braces) if you intend for the output to be interpreted as html.
 
 3. Save content as a json file under the content folder:
-   - example file path: **content/en/greetings.json**
-   - example JSON file:
+   - Example file path: **content/en/greetings.json**
+   - Example JSON file:
       ```
         {
           "greeting": "Hello",
@@ -61,11 +61,23 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
         "content" : ["global", "welcome", "greeting"]
         }
         ```
-5. Lastly, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
-    - example: **assets/styles/greetings.css**
-    - example: **assets/scripts/greetings.js**
+5. If you want to insert partials in your template, the next step would be to place the appropriate partial tags in your template.
+    - Example greeting.html template tagged with header and footer partials.
+      ```
+        {{> partials/header}}
 
-6. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
+        <h1>{{greeting}} {{name}}</h1>
+        <p>{{message}}</p>
+
+        {{> partials/footer}}
+
+      ```
+
+6. Lastly, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
+    - Example: **assets/styles/greetings.css**
+    - Example: **assets/scripts/greetings.js**
+
+7. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
 "{{#each}}" and {{#if}} that can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
 
 ## How it all works!
@@ -100,7 +112,7 @@ var templateFunc = Handlebars.compile(source);
 
 
 Now every time the template function gets called with data, an interpolated string will be returned.
-- example content data: 
+- Example content data: 
 ```
     {
      "greeting" : "Hello",
@@ -111,7 +123,7 @@ Now every time the template function gets called with data, an interpolated stri
      "message" : "Your invited out for tacos tomorrow night."
     }
 ```
-- example template function signature:
+- Example template function signature:
 
 ```
   templateFunc = function (data) {
@@ -128,6 +140,6 @@ document.body.appendChild(result);
 
 ```
 
-The example output to the DOM would be:
+The output from this example would be:
 # Hello Team
 Tomorrow we are invited out for tacos.
