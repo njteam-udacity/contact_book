@@ -10,29 +10,29 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 
 
 ### The steps below are instructions for integrating templates in our application.
-1. Create an html fragment and save it under the templates folder with a file name appropriate to your template.
+1. Create an html fragment and save it under the templates folder with a file name appropriate to your template and the extension "hbs".
     - Example file names:
-      - template/partial/header.html
-      - template/partial/footer.html
-      - template/greeting.html
-      - template/navmenu.html
+      - template/partial/header.hbs
+      - template/partial/footer.hbs
+      - template/page/greeting.hbs
+      - template/partial/navmenu.hbs
 
-    -  *Tip*: If you are creating a partial (a component of a page) it should be      saved under the folder "template/partial" with the appropriate name.
+    -  *Tip*: If you are creating a partial (a component of a page) it should be  saved under the folder "template/partial" with the appropriate name.
 
-2. Replace any static html content with handlebars tags.
-    - Example static html:
+2. Replace any static content with handlebars tags.
+    - Example static content:
       ```
       <h1>Hello Team</h1>
       <p>Tomorrow we are invited out for tacos.</p>
       ```  
-    - Example html using handlebars tags for interpolation:
+    - Example using handlebars tags for interpolation:
       ```
       <h1>{{greeting}} {{name}}</h1>
       <p>{{message}}</p>
       ```
     - *Tip*: Use handlebars escape tags {{{ escape tag }}} (three pairs of curly braces) if you intend for the output to be interpreted as html.
 
-3. Save content as a json file under the content folder:
+3. Save content as a json file under the content/en/page folder:
    - Example file path: **content/en/greetings.json**
    - Example JSON file:
       ```
@@ -50,19 +50,19 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
       - Example **before** adding the "greeting" template file names:
         ```
         {
-        "templates": ["welcome", "partials/footer", "partials/header"],
-        "content" : ["global", "welcome"]
+        "templates": ["page/index","partials/footer", "partials/header"],
+        "content" : ["global", "page/index"]
         }
         ```  
       - Example **after** adding the "greeting" template file names:
         ```
         {
-        "templates": ["welcome", "partials/footer", "partials/header", "greeting"],
-        "content" : ["global", "welcome", "greeting"]
+        "templates": ["page/index", "partials/footer", "partials/header", "page/greeting"],
+        "content" : ["global", "page/index", "page/greeting"]
         }
         ```
 5. If you want to insert partials in your template, the next step would be to place the appropriate partial tags in your template.
-    - Example greeting.html template tagged with header and footer partials.
+    - Example greeting.hbs template tagged with header and footer partials.
       ```
         {{> partials/header}}
 
@@ -73,17 +73,38 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 
       ```
 
-6. Lastly, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
-    - Example: **assets/styles/greetings.css**
-    - Example: **assets/scripts/greetings.js**
+6. Next, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
+    - Example: **assets/styles/page/greetings.css**
+    - Example: **assets/scripts/page/greetings.js**
 
-7. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
+7. Lastly, be sure to include **all** dependencies (stylesheet links & script tags) into the head of the of the corresponding html page where your template will be rendered.
+    - High level example: Html of the "greeting" page.
+      ```
+      <!doctype html>
+          <html>
+            <head>
+                <meta charset="utf-8">
+                <title>Greeting</title>
+                <meta .......stuff">
+                <link ....library/framework styles">
+                <link .....global styles">
+                <link rel="stylesheet" href="assets/styles/page/greeting.css">
+
+                <script ..... cool library/framework ...></script>
+                <script ..... utils..app...services...."></script>
+                <script src="/assets/scripts/page/greeting.js"></script>
+            </head>
+            <body></body>
+          </html>
+      ```
+
+8. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
 "{{#each}}" and {{#if}} that can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
 
 ## How it all works!
-We created an html template of an html component or page and stored it in a separate file under the templates folder. (e.g: templates/greeting.html)
+We created an html template of an html component or page and stored it in a separate file under the templates folder. (e.g: templates/greeting.hbs)
 
-```greeting.html source
+```greeting.hbs source
    <!-- Pre-compiled templates are often referred to as "source" in handlebars.js -->
 
 
@@ -92,7 +113,7 @@ We created an html template of an html component or page and stored it in a sepa
 
 ```
 
-- Notice that our demo greeting.html template does not have an `<html>` or `<body>` parent element.
+- Notice that our demo greeting.hbs template does not have an `<html>` or `<body>` parent element.
   This technique is intended so that we can dynamically append templates to the DOM during run-time.
   This demo template itself, is just a pair of header tags with a greeting inside followed by a pair of paragraph tags with a message inside.
   
@@ -102,7 +123,7 @@ We created an html template of an html component or page and stored it in a sepa
 Once you have the template, the next step is the interesting part. We call the **Handlebars compile** function to process the template *source*. **Handlebars compile** returns a function that accepts a data object as its parameter.
 
 ```
-<!--Sidenote: We use AJAX to obtain the html text from the greeting.html file and assign that html text to the "source" variable -->
+<!--Sidenote: We use AJAX to obtain the html text from the greeting.hbs file and assign that html text to the "source" variable -->
 
 var source = " <h1>{{greeting}}  {{user-details.name}}</h1>
             <p>{{message}} </p>";

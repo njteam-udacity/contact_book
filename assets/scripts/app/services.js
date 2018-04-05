@@ -57,7 +57,7 @@
 
         getTemplates: function(filespecs, cb) {
 
-            app.services.getTexts("/templates/", ".html", filespecs, function(error, fileContents) {
+            app.services.getTexts("/templates/", ".hbs", filespecs, function(error, fileContents) {
                  
                 // if there is an error
                 if (error) {

@@ -1,4 +1,4 @@
 {
-    "templates": ["page/index", "partials*footer", "partials/header"],
+    "templates": ["page/index", "partials/footer", "partials/header"],
     "content": ["global", "page/index"]
 }

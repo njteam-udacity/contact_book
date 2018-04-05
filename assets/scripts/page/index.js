@@ -26,7 +26,7 @@
 
     
     function addEventListeners(){
-
+        //Todo add event listeners
         // $(document)
         //     // does something when ".selector" is clicked.
         //     .on('click', '.selector', function() {
