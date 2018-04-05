@@ -46,17 +46,28 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 |    ├── audio/
 |    ├── images/
 |    ├── scripts/
+|    |       ├── app/ (global)
+|    |       ├── page/ (page specific js)
+|    |       └── vendors/ (public libraries)
 |    └── styles/
+|    |       ├── app/ (global)
+|    |       ├── fonts/
+|    |       ├── page/ (page specific css)
+|    |       └── vendors/ (public libraries)
 ├── content/
 |    └── en/
-|         └──content.json
+|         ├── page/ (page/template specific content)
+|         |
+|         └──global.json
 ├── data/
 |    └── contacts.json
+|
+├── node_modules/
+|
 ├── templates/
-|    ├── partials/
-|    |       └── shared.html
-|    |
-|    └── templates.html
+|    ├── partials/ (page component templates)
+|    └── page/ (page specific templates)
+|
 ├── .gitignore
 ├── config.json
 ├── favicon.ico
