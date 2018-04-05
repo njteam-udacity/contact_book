@@ -1,4 +1,4 @@
-(function () {
+(function (app) {
 
     var storageKey = "contactList";
 
@@ -9,7 +9,7 @@
      * it is a good idea to first test for validity of the error to handle that error.
      * 
      * @example ```
-     * dataStore.setData(
+     * app.storage.setData(
      *     [
      *         {
      *              name: "Test McTesting", 
@@ -59,7 +59,7 @@
      * it is a good idea to first test for validity of the error to handle that error.
      * 
      * @example ```
-     * dataStore.getData(function(error, data) {
+     * app.storage.getData(function(error, data) {
      *     
      *     // if there was an error
      *     if (error) {
@@ -109,9 +109,9 @@
         
     }
 
-    window.dataStore = {
+    app.storage = {
         setData: setData,
         getData: getData
     };
 
-})();
+})(window.app = window.app || {});

@@ -1,5 +1,4 @@
 {
-    "templates": ["welcome", "partials/footer", "partials/header"],
-    "content" : ["global", "welcome"],
-    "datastore": "contacts"
+    "templates": ["page/index", "partials/footer", "partials/header"],
+    "content": ["global", "page/index"]
 }
