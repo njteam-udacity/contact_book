@@ -1,0 +1,36 @@
+a {
+	text-decoration: none;
+	color: #1a2a2d;
+	font-weight: 800;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #d25c37;
+	font-weight: 1000;
+}
+
+header {
+    	padding: 30px;
+    	background-color: #529eaf;
+    	width: 100%;
+    	z-index: 1;
+    	position: fixed;
+    	top: 0;
+    	font-size: 18px;
+    }
+
+.fa-address-book {
+    font-size: 35px;
+}
+
+li {
+    list-style: none;
+}
+
+nav ul {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

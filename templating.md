@@ -76,6 +76,7 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 6. Next, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
     - Example: **assets/styles/page/greetings.css**
     - Example: **assets/scripts/page/greetings.js**
+    - *Tip*: If your style or script is for a partial it should be saved in a file under styles/app/ or scripts/app.
 
 7. Lastly, be sure to include **all** dependencies (stylesheet links & script tags) into the head of the of the corresponding html page where your template will be rendered.
     - High level example: Html of the "greeting" page.

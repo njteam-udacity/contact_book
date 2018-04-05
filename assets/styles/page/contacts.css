@@ -1,0 +1,26 @@
+html, body {
+    font-size: 12px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: #1a2a2d;
+}
+.avatar {
+    padding: 5px;
+}
+
+.avatar img {
+    height: 100px;
+    width: 100px; 
+}
+
+.contacts.wrapper {
+    padding: 15% 20px;
+    text-align: center;
+}
+
+.contact {
+    display: inline-block;
+}

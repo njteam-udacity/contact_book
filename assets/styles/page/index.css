@@ -9,51 +9,12 @@ html, body {
 }
 
 /*Reset*/
-html, body, header, section, footer, h1, .main, div, nav {
+html, body, section, h1, .main, div, nav {
 	margin: 0;
 	padding: 0;
 }
 
 /*Welcome Page*/
-a {
-	text-decoration: none;
-	color: #1a2a2d;
-	font-weight: 800;
-}
-
-a:hover {
-	text-decoration: none;
-	color: #d25c37;
-	font-weight: 1000;
-}
-
-header {
-	padding: 30px;
-	background-color: #529eaf;
-	width: 100%;
-	z-index: 1;
-	position: fixed;
-	top: 0;
-	font-size: 18px;
-	max-height: 100px;
-	box-sizing: border-box;
-}
-
-nav ul {
-	width: 300px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.fa-address-book {
-	font-size: 35px;
-}
-
-li {
-	list-style: none;
-}
-
 section {
 	height: 100%;
 	width: 100%;
@@ -70,7 +31,7 @@ section.main.img {
  
 div.headline {
 	height: 100%;
-	width: 500px;
+    width: 30%;
 	position: absolute;
 	text-align: left;
 	top: 24%;
@@ -99,19 +60,4 @@ code {
 	background-color: none;
 	color: #1a2a2d;
 	font-weight: 600;
-}
-
-footer {
-	padding: 40px 50px;
-	background-color: #d25c37;
-	width: 100%;
-	z-index: 1;
-	position: fixed;
-	bottom: 0;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	font-size: 15px;
-	max-height: 100px;
-	box-sizing: border-box;
 }
