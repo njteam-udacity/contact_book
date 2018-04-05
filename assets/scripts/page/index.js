@@ -1,51 +1,26 @@
-(function(app) {
+(function(app, chkErr) {
 
     $(initializeApplication);
 
     function initializeApplication() {
 
-        app.services.getConfig(function(error, config) {
+        app.services.getConfig(chkErr(function(config) {
 
-             // if there is an error
-             if (error) {
-                // deal with the error
-                console.error(error);
-                // and exit.
-                return;
-            }
-            
-            app.services.getTemplates(config.templates, function(error, templates) {
+            app.services.getTemplates(config.templates, chkErr(function(templates) {
                  
-                // if there is an error
-                if (error) {
-                    // deal with the error
-                    console.error(error);
-                    // and exit.
-                    return;
-                }
-
                 app.templates = templates;
 
+                app.services.getContent(config.content, chkErr(function(content) {
 
-                app.services.getContent(config.content, function(error, content) {
-
-                    // if there is an error
-                    if (error) {
-                        // deal with the error
-                        console.error(error);
-                        // and exit.
-                        return;
-                    }
-        
                     app.content = content;
                 
                     app.utils.renderPage(app.templates.page_index, app.content);
         
-                });
+                }));
                 
-            });
+            }));
 
-        });
+        }));
 
     }
 
@@ -65,4 +40,4 @@
         //     });
     }
 
-})(window.app);
+})(window.app, app.utils.checkForErrors);

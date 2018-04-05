@@ -62,7 +62,7 @@
                 // if there is an error
                 if (error) {
                     // deal with the error
-                    cd(error);
+                    cb(error);
                     // and exit.
                     return;
                 }

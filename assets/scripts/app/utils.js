@@ -51,9 +51,29 @@
                 var name = app.utils.swapChars(property, "/", "_");
                 objMap[name] = JSON.parse(txtMap[property]);
             }
-            
+
             return objMap;
             
+
+        },
+
+        checkForErrors: function(cb) {
+
+            return function(error, result) {
+
+                // if there is an error
+                if (error) {
+                    // deal with the error
+                    $(document.documentElement).addClass('error');
+                    $(document.body).empty().text(error.message);
+                    console.error(error);
+                    // and exit.
+                    return;
+                }
+
+                cb(result);
+
+            }
 
         }
          

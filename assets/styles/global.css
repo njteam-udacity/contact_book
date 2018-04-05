@@ -47,3 +47,26 @@ html, body {
     clear: both;
 }
 
+html.error, html.error body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    color:red;
+    font-family: monospace;
+    font-size: 24px;
+}
+
+html.error body {
+    padding: 200px 20px 20px 20px;
+}
+
+html.error body::before {
+    content: ':(';
+    font-size: 80px;
+    color: white;
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
