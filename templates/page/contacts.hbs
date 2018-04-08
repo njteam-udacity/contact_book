@@ -2,17 +2,30 @@
 <section class="contacts wrapper">
 
  <li class="contact">
-     <figure class="avatar">
-         <img src={{page_contacts.avatar}} alt="avatar">
-     </figure>
-
- </li>
- <li class="contact">
-    <h3 class="contact-name">Example Foryou</h3>
-    <div class="contact-details">
-       <span class="contact-phone">(201) 555-1234</span> 
-       <span class="contact-email">njudacity@gmail.com</span> 
-    </div>
+     <div class="container">
+        <figure class="avatar col-sm-1 inline-block">
+            <img src={{page_contacts.avatar}} alt="avatar">
+        </figure>
+        <div class="name wrapper col-sm-3 inline-block">
+            <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+        </div>
+        <div class="details wrapper col-sm-5 inline-block">
+            <div class="inline-block">
+                <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+            </div>
+            <div class="inline-block">
+                <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+            </div>
+        </div>
+        <div class="controls wrapper col-sm-2 inline-block">
+            <div class="control-button edit inline-block">
+                <i class="fas fa-edit"></i>
+            </div>
+            <div class="control-button trash inline-block">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+     </div>
  </li>
 
 </section>

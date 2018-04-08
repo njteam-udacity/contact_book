@@ -7,20 +7,71 @@ html, body {
     left: 0;
     color: #1a2a2d;
 }
-.avatar {
-    padding: 5px;
-}
-
-.avatar img {
-    height: 100px;
-    width: 100px; 
-}
 
 .contacts.wrapper {
     padding: 15% 20px;
     text-align: center;
 }
-
-.contact {
+/* Contact list items */
+.contacts .contact {
+    width: 56%;
+    text-align: left;
     display: inline-block;
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+.contacts .contact a {
+    font-weight: normal;
+}
+
+.contacts .avatar {
+    margin-right: 5px;
+    padding: 0;
+}
+
+.contacts .avatar img {
+    height: 100px;
+    width: 100px; 
+}
+
+.contacts .avatar.wrapper,
+.contacts .name.wrapper,
+.contacts .details.wrapper,
+.contacts .controls.wrapper {
+    height: 100px;
+}
+    
+.contacts .contact-name,
+.contacts .contact-phone,
+.contacts .contact-email {
+    padding: 30px 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+.contacts .contact-name {
+    overflow: hidden;
+}
+
+.contacts .contact-phone,
+.contacts .contact-email {
+    margin-right: 25px;
+}
+
+/* Group container for the edit and delete buttons */
+.contacts .controls {
+    font-size: 25px;
+    
+}
+
+/* Control buttons */
+.contacts .controls .control-button {
+    padding: 16%;
+}
+.contacts .controls .control-button.edit:hover {
+    color: blue
+}
+.contacts .controls .control-button.trash:hover {
+    color: red;
 }

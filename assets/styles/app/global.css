@@ -70,3 +70,7 @@ html.error body::before {
     top: 20px;
     left: 20px;
 }
+
+.inline-block {
+    display: inline-block;
+}
