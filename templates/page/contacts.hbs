@@ -1,18 +1,457 @@
-{{> partials/header}}
+{{> partials_header}}
 <section class="contacts wrapper">
-
- <li class="contact">
-     <figure class="avatar">
-         <img src="/images/myexample.png" alt="avatar">
-     </figure>
-
- </li>   
-    <h3 class="contact-name">Example Foryou</h3>
-    <div class="contact-details">
-       <span class="contact-phone">(201) 555-1234</span> 
-       <span class="contact-email">njudacity@gmail.com</span> 
-    </div>
-
+      <ul class="header">
+        <li class="contact">
+            <div class="container">
+                <div class=" col col-sm-1">
+                    <h3> Avatar </h3>
+                </div>
+                <div class="col  col-sm-3">
+                    <h3> Contact Name</h3>
+                </div>
+                <div class="col col-sm-2">
+                    <div>
+                        <h3> Phone</h3> 
+                    </div>
+                </div>
+                <div class="col col-sm-2">
+                    <div>
+                        <h3>Email</h3> 
+                    </div>
+                </div>
+                <div class="col col-sm-2">
+                    <div>
+                        <h3>Controls</h3> 
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+  <form action="">
+      <ul class="header">
+        <li class="contact">
+            <div class="container">
+                <div class=" col contact-avatar col-sm-1">
+                    <input type="file" name="avatar">
+                </div>
+                <div class="col contact-name col-sm-3">
+                    <input type="text" name="name">
+                </div>
+                <div class="col contact-phone col-sm-2">
+                    <div>
+                      <input type="tel" name="phone"> 
+                    </div>
+                </div>
+                <div class="col contact-email col-sm-2">
+                    <div>
+                      <input type="email" name="email"> 
+                    </div>
+                </div>
+                <div class="col controls col-sm-2">
+                    <div class="control-button add">
+                        <i class="fas fa-plus-circle"></i> 
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+  </form>
+  <div class="">
+    <ul class="list">
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                <img src={{page_contacts.avatar}} alt="avatar">
+            </figure>
+            <div class="name col-sm-3">
+                <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+            </div>
+            <div class="details col-sm-5">
+                <div>
+                    <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                </div>
+                <div>
+                    <h3 class="contact-email"
+                     ><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a>
+                     </h3> 
+                </div>
+            </div>
+            <div class="controls col-sm-2">
+                <div class="control-button edit">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="control-button trash">
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="contact">
+            <div class="container">
+                <figure class="avatar col-sm-1">
+                    <img src={{page_contacts.avatar}} alt="avatar">
+                </figure>
+                <div class="name  col-sm-3">
+                    <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                </div>
+                <div class="details  col-sm-5">
+                    <div "">
+                        <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3> 
+                    </div>
+                    <div >
+                        <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a></h3> 
+                    </div>
+                </div>
+                <div class="controls  col-sm-2">
+                    <div class="control-button edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="control-button trash">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+  </div>
+  
 </section>
 
-{{> partials/footer}}
+{{> partials_footer}}

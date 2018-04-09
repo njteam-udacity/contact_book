@@ -1,0 +1,168 @@
+html, body {
+    font-size: 12px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: #1a2a2d;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.contacts.wrapper {
+  width: 100%;
+  text-align: center;
+}
+.contacts ul{
+    list-style-type: none;
+    padding-left: 0;
+    display:inline-block;
+    
+}
+.contacts ul.list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 600px;
+    margin-right: -20px;
+}
+/* Contact list item rows */
+.contacts ul.header li
+.contacts ul.list li {
+    display: inline-block;
+}
+.contacts ul.list .container div {
+    display: inline-block;
+}
+
+/* list header columns */
+.contacts ul.header .container .col{
+    margin-left:5px;
+}
+.contacts ul.header .container .col:first-child,
+.contacts ul.header .container .col:last-child {
+    margin-left:0;
+}
+.contacts ul.header .container .col:last-child {
+    text-align: right;
+}
+
+.contacts .contact {
+    text-align: left;
+    display: inline-block;
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+.contacts .contact a {
+    font-weight: normal;
+}
+
+.contacts .avatar {
+    margin-right: 15px;
+    padding: 0;
+}
+
+.contacts .avatar img {
+    height: 100px;
+    width: 100px; 
+}
+
+.contacts .contact-avatar,
+.contacts .contact-name,
+.contacts .contact-phone,
+.contacts .contact-email,
+.contacts .contact-controls {
+    padding: 30px 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+
+.contacts .contact-name {
+    overflow: hidden;
+}
+
+.contacts .contact-phone,
+.contacts .contact-email {
+    margin-right: 25px;
+}
+
+/* Group container for the edit and delete buttons */
+.contacts .controls {
+    font-size: 25px;
+}
+
+/* Control buttons */
+.contacts .controls .control-button {
+    padding:25px
+}
+.contacts .controls .control-button.add {
+    color: green;
+}
+.contacts .controls .control-button.add:hover {
+    color: lightgreen;
+}
+.contacts .controls .control-button.edit:hover {
+    color: blue
+}
+.contacts .controls .control-button.trash:hover {
+    color: red;
+}
+
+
+/* responsive */
+
+@media only screen and (max-width: 1080px) {
+    .contacts.wrapper {
+       padding: 0px;
+       text-align: center;
+    }    
+    .contacts ul.header{
+        display: none;
+    }
+    .contacts .contact {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    .contacts ul.list .container div {
+        width:100%;
+        padding:0;
+    }
+    .contacts .contact .avatar {
+        width:100%;
+        margin-right: 10px;
+        text-align: center;
+    }
+    .contacts .contact .name {
+        width: 30%;
+        display: block;
+    }
+    .contacts .contact-phone,
+    .contacts .contact-email {
+        word-wrap: break-word;
+        margin:0;
+    }
+    .contacts ul.list .controls {
+        font-size: 25px;
+        display: inline-block;
+    }
+    .contacts  ul.list .controls .control-button {
+        width: 45%;
+        margin-top: 20px;
+        background-color: lightblue;
+        position: initial;
+    }
+    
+}
+
+@media only screen and (max-width:  400px) {
+    .contacts .contact {
+        font-size: 15px;
+    }
+    .contacts .avatar img {
+        height: 100%;
+        width: 100%;
+    }
+} 
