@@ -2,7 +2,8 @@ footer {
 	padding: 40px 50px;
 	background-color: #d25c37;
 	width: 100%;
-	position: static;
+	position: relative;
+	bottom:0;
 	display: inline-block;
 	align-items: center;
 	font-size: 15px;
@@ -12,9 +13,4 @@ footer {
 	text-align: center;
 }
 
-/*responsive*/
-@media only screen and (min-height: 1920px) {
-    footer {
-     position: static; 
-	}
-}
+/* responsive */
