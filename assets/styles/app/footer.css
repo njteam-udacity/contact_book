@@ -2,7 +2,7 @@ footer {
 	padding: 40px 50px;
 	background-color: #d25c37;
 	width: 100%;
-	position: fixed;
+	position: static;
 	bottom:0;
 	display: inline-block;
 	align-items: center;
