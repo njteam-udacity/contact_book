@@ -97,6 +97,12 @@ html, body {
 .contacts .controls .control-button {
     padding:25px
 }
+.contacts .controls .control-button.add {
+    color: green;
+}
+.contacts .controls .control-button.add:hover {
+    color: lightgreen;
+}
 .contacts .controls .control-button.edit:hover {
     color: blue
 }
