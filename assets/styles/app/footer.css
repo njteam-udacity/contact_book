@@ -2,14 +2,19 @@ footer {
 	padding: 40px 50px;
 	background-color: #d25c37;
 	width: 100%;
-	z-index: 1;
-	position: fixed;
-	bottom: 0;
-	display: flex;
-	justify-content: flex-start;
+	position: static;
+	display: inline-block;
 	align-items: center;
 	font-size: 15px;
 	max-height: 100px;
 	box-sizing: border-box;
 	margin: 0px;
+	text-align: center;
+}
+
+/*responsive*/
+@media only screen and (min-height: 1920px) {
+    footer {
+     position: static; 
+	}
 }
