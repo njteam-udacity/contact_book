@@ -1,10 +1,5 @@
 html, body {
     font-size: 12px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     color: #1a2a2d;
     overflow-y: auto;
     overflow-x: hidden;
@@ -25,8 +20,12 @@ html, body {
 .contacts ul.list {
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 600px;
+    height: 520px;
     margin-right: -20px;
+}
+
+.contacts ul.header {
+    margin-top: 20px;
 }
 
 /* Contact list item rows */
@@ -127,9 +126,6 @@ html, body {
     color: red;
 }
 
-/* Animation */
-
-
 /* responsive */
 
 @media only screen and (max-width: 1080px) {
@@ -146,6 +142,9 @@ html, body {
         display: block;
     }
     
+    .contacts ul.list{
+        height: 640px;
+    }
     .contacts ul.list,
     .contacts ul.list .container div {
         width:100%;
