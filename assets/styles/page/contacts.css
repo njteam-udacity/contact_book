@@ -13,6 +13,8 @@ html, body {
 .contacts.wrapper {
   width: 100%;
   text-align: center;
+  background-color:rgb(233, 233, 233);
+;
 }
 .contacts ul{
     list-style-type: none;
@@ -26,18 +28,31 @@ html, body {
     height: 600px;
     margin-right: -20px;
 }
+
 /* Contact list item rows */
 .contacts ul.header li
 .contacts ul.list li {
     display: inline-block;
 }
+
 .contacts ul.list .container div {
     display: inline-block;
+}
+
+.contacts .contact {
+    text-align: left;
+    display: inline-block;
+    background-color: aliceblue;
+    padding: 5px;
 }
 
 /* list header columns */
 .contacts ul.header .container .col{
     margin-left:5px;
+}
+
+.contacts ul.header .col.controller{
+    width: 200px; 
 }
 .contacts ul.header .container .col:first-child,
 .contacts ul.header .container .col:last-child {
@@ -47,11 +62,13 @@ html, body {
     text-align: right;
 }
 
-.contacts .contact {
-    text-align: left;
-    display: inline-block;
-    background-color: aliceblue;
-    padding: 5px;
+
+/*add contact form */
+.contacts form [type="file"] {
+    display: none; 
+}
+.contacts form .contact {
+    background-color: rgba(240, 248, 255, 0.4);
 }
 
 .contacts .contact a {
@@ -110,6 +127,8 @@ html, body {
     color: red;
 }
 
+/* Animation */
+
 
 /* responsive */
 
@@ -126,6 +145,8 @@ html, body {
         text-align: center;
         display: block;
     }
+    
+    .contacts ul.list,
     .contacts ul.list .container div {
         width:100%;
         padding:0;
