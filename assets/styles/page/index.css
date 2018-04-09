@@ -19,24 +19,20 @@ section {
 	height: 100%;
 	width: 100%;
 	background-color: #E8E8E8;
-	position: absolute; 
-	top: 100px;
-	left: 0;
 }
 
 section.main.img {
-	background: url("/assets/images/main-image-phone.jpg") no-repeat;
-	background-size: 100% 80%;
+	background: url(/assets/images/main-image-phone.jpg) no-repeat #e9e9e9;
+    background-size: 90% 90%;
+    display: inline-block;
+	background-position: top right;
 }
  
 div.headline {
-	height: 100%;
     width: 30%;
-	position: absolute;
-	text-align: left;
-	top: 24%;
-	left: 35%;
-	font-size: 21px;
+    text-align: center;
+    font-size: 21px;
+    margin: 10% auto;
 }
 
 .headline h1 {
@@ -61,3 +57,28 @@ code {
 	color: #1a2a2d;
 	font-weight: 600;
 }
+
+/* responsive */
+
+@media only screen and (max-width: 1024px) {
+	section.main.img {
+		background-size: 100%;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+
+	section.main.img {
+		background: url("/assets/images/main-image-phone.jpg") no-repeat #e9e9e9;
+		background-size: 100%;
+		display: inline-block;
+	}
+
+	div.headline {
+		width: 100%;
+		text-align: center;
+		font-size: 18px;
+		margin: 45% auto;
+	}
+}
+
