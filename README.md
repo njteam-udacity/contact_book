@@ -47,12 +47,12 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
   - ![Error: Localhost refused:][img]
   - [img]: /assets/images/error.png 
     ```
-    This site can't be reached local 
+    This site can't be reached 
     **localhost** refused to connect.
 
     ERR_CONNECTION_REFUSED
     ```
-  - Then checkout your termial to see if any   dependencies were not installed. For example:
+  - Then checkout your apple terminal or bash terminal to see if core dependencies were not installed. For example:
 
     ```
      which http-server
@@ -105,7 +105,7 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 |    └── page/ (page specific templates)
 |
 ├── .gitignore
-├── config.json
+├── config.json (template and content file map)
 ├── favicon.ico
 ├── index.html
 ├── package-lock.json
