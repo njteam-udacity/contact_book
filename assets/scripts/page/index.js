@@ -15,6 +15,9 @@
                     app.content = content;
                 
                     app.utils.renderPage(app.templates.page_index, app.content);
+                    
+                    // TO DO move this method from about to navigation
+                    app.about.addNavigationMod();
         
                 }));
                 
@@ -32,7 +35,7 @@
         //     .on('click', '.selector', function() {
 
         //     });
-
+    
         // $(window)
         //     // does something when ".selector" is clicked.
         //     .on('click', '.selector', function() {

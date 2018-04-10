@@ -1,4 +1,4 @@
 {
-    "templates": ["page/index", "partials/footer", "partials/header", "page/contacts"],
+    "templates": ["page/index", "partials/footer", "partials/header", "page/contacts", "partials/about"],
     "content": ["global", "page/index", "page/contacts"]
 }

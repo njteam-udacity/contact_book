@@ -6,6 +6,9 @@
     },
     "footer" : {
         "message": "GwG Udacity | NJ Group &copy; 2018" 
+    },
+    "about" : {
+        "header": "Meet The Team"
     }
     
 }

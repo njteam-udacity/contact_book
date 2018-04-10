@@ -39,6 +39,42 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 ### Start the server:
 - $ npm start
 
+- **NOTICE**
+  - If you are using **MAC OS** or **Linux OS**
+    then you may need superuser permissions to install
+    dependencies that are required to run this application locally.
+  - If you receive an error message in the browser, such as:
+  - ![Error: Localhost refused:][img]
+  - [img]: /assets/images/error.png 
+    ```
+    This site can't be reached local 
+    **localhost** refused to connect.
+
+    ERR_CONNECTION_REFUSED
+    ```
+  - Then checkout your termial to see if any   dependencies were not installed. For example:
+
+    ```
+     which http-server
+    
+    ```
+  
+  - If http-server is not found then:
+
+    ```
+     sudo npm install -g http-server
+    
+    ```
+    [Reference: https://en.wikipedia.org/wiki/Sudo](https://en.wikipedia.org/wiki/Sudo)
+
+  - Once dependencies are installed, then you should be able to run the application successfully:
+    
+    ```
+      npm start
+
+    ```
+
+
 ### Initial file structure
 ```
 
