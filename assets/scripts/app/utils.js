@@ -30,7 +30,7 @@
          * @param {object} Object containing content data. 
          */
         renderPage: function (template, data) {       
-            $(document.body).append(template(data));      
+            $(document.body).append(template(data));     
         },
         /**
          * Delimiter

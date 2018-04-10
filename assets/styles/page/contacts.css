@@ -20,12 +20,12 @@ html, body {
 .contacts ul.list {
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 480px;
+    height: 500px;
     margin-right: -20px;
 }
 
-.contacts ul.header {
-    margin-top: 20px;
+.contacts ul.header.labels {
+    margin-top: 120px;
 }
 
 /* Contact list item rows */

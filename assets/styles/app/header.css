@@ -14,8 +14,9 @@ header {
     	padding: 30px;
     	background-color: #529eaf;
     	width: 100%;
-    	position: static;
-    	font-size: 18px;
+    	position: fixed;
+		font-size: 18px;
+		z-index: 1;
     }
 
 .fa-address-book {
