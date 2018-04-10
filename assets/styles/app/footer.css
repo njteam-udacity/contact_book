@@ -1,8 +1,8 @@
 footer {
-	padding: 40px 50px;
+	padding: 20px 50px;
 	background-color: #d25c37;
 	width: 100%;
-	position: static;
+	position: fixed;
 	bottom:0;
 	display: inline-block;
 	align-items: center;
@@ -11,6 +11,12 @@ footer {
 	box-sizing: border-box;
 	margin: 0px;
 	text-align: center;
+}
+
+footer .chevron {
+	font-size: x-large;
+	color: #d1ccc0;
+	display: block;
 }
 
 /* responsive */

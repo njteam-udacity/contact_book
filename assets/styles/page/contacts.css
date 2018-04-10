@@ -20,7 +20,7 @@ html, body {
 .contacts ul.list {
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 520px;
+    height: 480px;
     margin-right: -20px;
 }
 
