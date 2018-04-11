@@ -3,25 +3,26 @@ html, body {
     color: #1a2a2d;
     overflow-y: auto;
     overflow-x: hidden;
+    background-color:rgb(233, 233, 233);
 }
 
 .contacts.wrapper {
   width: 100%;
   text-align: center;
-  background-color:rgb(233, 233, 233);
-;
+
 }
 .contacts ul{
     list-style-type: none;
     padding-left: 0;
     display:inline-block;
-    
+        
 }
 .contacts ul.list {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 500px;
     margin-right: -20px;
+    height: 600px;
 }
 
 .contacts ul.header.labels {
