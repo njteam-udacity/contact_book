@@ -3,6 +3,7 @@ html, body {
 	color: #1a2a2d;
 	overflow-x: hidden;
 	overflow-y: auto;
+	background-color: #E8E8E8;
 }
 
 /*Reset*/
@@ -15,7 +16,6 @@ html, body, section, h1, .main, div, nav {
 section {
 	height: 100%;
 	width: 100%;
-	background-color: #E8E8E8;
 }
 
 section.main.img {
