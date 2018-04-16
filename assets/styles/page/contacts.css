@@ -20,9 +20,8 @@ html, body {
 .contacts ul.list {
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 500px;
     margin-right: -20px;
-    height: 600px;
+    height: 655px;
 }
 
 .contacts ul.header.labels {
@@ -133,42 +132,46 @@ html, body {
     .contacts.wrapper {
        padding: 0px;
        text-align: center;
-    }    
+    }
+
     .contacts ul.header{
         display: none;
     }
+
     .contacts .contact {
         width: 100%;
         text-align: center;
         display: block;
     }
-    
-    .contacts ul.list{
-        height: 640px;
-    }
+
     .contacts ul.list,
     .contacts ul.list .container div {
         width:100%;
         padding:0;
     }
+
     .contacts .contact .avatar {
         width:100%;
         margin-right: 10px;
         text-align: center;
     }
+
     .contacts .contact .name {
         width: 30%;
         display: block;
     }
+
     .contacts .contact-phone,
     .contacts .contact-email {
         word-wrap: break-word;
         margin:0;
     }
+
     .contacts ul.list .controls {
         font-size: 25px;
         display: inline-block;
     }
+
     .contacts  ul.list .controls .control-button {
         width: 45%;
         margin-top: 20px;
@@ -186,4 +189,4 @@ html, body {
         height: 100%;
         width: 100%;
     }
-} 
+}
