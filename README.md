@@ -119,18 +119,18 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 
 - Always do a git pull to make sure you are working on the latest code
 - Always work on your branch
-- Commit often 
+- Commit often: 
 	- make atomic commits 
 	- this makes it easier to revert to an older version without losing a lot of work
 
 ### Steps to take when working on your Branch
-1. $ git checkout development  
-2. $ git pull origin development  
+1. $ git checkout develop  
+2. $ git pull origin develop  
 3. $ git checkout < BRANCHNAME >
 
 ### Pushing your Commits
-1. $ git checkout development  
-2. $ git pull origin development  
-3. $ git checkout < BRANCHNAME >
-4. $ git merge development  
+1. $ git status
+2. $ git add -A
+3. $ git pull origin develop
+4. $ git commit -m "enter your commit message here"
 5. $ git push origin < BRANCHNAME >
