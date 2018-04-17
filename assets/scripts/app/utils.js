@@ -26,7 +26,9 @@
         /**
          * Utilize handlebars templating to bind an html template with 
          * content data, then used jQuery to render the page view.
-         * @param {string} html fragment/template
+         * template represent the template function, data represents the data object that
+         * will be bound to the template.
+         * @param {string} html fragment/template.
          * @param {object} Object containing content data. 
          */
         renderPage: function (template, data) {       
