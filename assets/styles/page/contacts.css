@@ -21,11 +21,18 @@ html, body {
     overflow-y: scroll;
     overflow-x: hidden;
     margin-right: -20px;
-    height: 655px;
+    height: 780px;
 }
 
 .contacts ul.header.labels {
     margin-top: 120px;
+}
+/* contact-list container */
+.contacts .rolodex {
+    overflow-x: hidden;
+    text-align: center;
+    display: inline-block;
+
 }
 
 /* Contact list item rows */
@@ -40,7 +47,6 @@ html, body {
 
 .contacts .contact {
     text-align: left;
-    display: inline-block;
     background-color: aliceblue;
     padding: 5px;
 }
@@ -125,6 +131,10 @@ html, body {
 .contacts .controls .control-button.trash:hover {
     color: red;
 }
+/* footer of contacts page */
+.contacts + footer {
+    position: static
+}
 
 /* responsive */
 
@@ -182,6 +192,11 @@ html, body {
 }
 
 @media only screen and (max-width:  400px) {
+    
+    .contacts ul.list {
+        margin-top: 30%;
+    }
+
     .contacts .contact {
         font-size: 15px;
     }
@@ -189,4 +204,6 @@ html, body {
         height: 100%;
         width: 100%;
     }
+
+
 }

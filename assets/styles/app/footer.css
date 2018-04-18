@@ -20,10 +20,3 @@ footer .chevron {
 }
 
 /* responsive */
-@media only screen and (min-height: 700px) {
-
-    footer {
-        position: static
-    }
-
-}
