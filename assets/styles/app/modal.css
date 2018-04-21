@@ -8,7 +8,7 @@
 }
 
 .modal-wrapper {
-	margin-top: 200px;
+	margin-top: 240px;
 	width: 350px;
 	height: 500px;
 	background-color: #ffffff;
@@ -16,6 +16,18 @@
 	-webkit-box-shadow: -1px 9px 18px -4px rgba(179,179,179,1);
 	-moz-box-shadow: -1px 9px 18px -4px rgba(179,179,179,1);
 	box-shadow: -1px 9px 18px -4px rgba(179,179,179,1);
+}
+
+.close {
+	font-size: 30px;
+	color: #ffffff;
+	position: relative;
+	top: -74px;
+	right: -9px;
+}
+
+.close:hover {
+	color: #ff6b6b;
 }
 
 .modal-header {
@@ -64,6 +76,7 @@
 .phone {
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
+	border-bottom: none;
 }
 
 .email {
@@ -78,7 +91,7 @@
 button {
 	width: 100px;
 	border: none;
-	border-radius: 5px;
+	border-radius: 3px;
 	outline: none;
 	padding: 10px;
 	text-transform: uppercase;
@@ -88,12 +101,16 @@ button {
 	position: relative;
 	bottom: -25px;
 	text-align: center;
+	color: #ffffff;
+	font-weight: 600;
 }
 
 .save {
-	border: 1px solid #27ae60;
+	background-color: #10ac84;
+	margin: 0 5px;
 }
 
 .delete {
-	border: 1px solid #c0392b;
+	background-color: #ff6b6b;
+	margin: 0 5px;
 }
