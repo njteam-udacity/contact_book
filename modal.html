@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="assets/styles/app/header.css">
         <link rel="stylesheet" href="assets/styles/app/footer.css">
         <link rel="stylesheet" href="assets/styles/app/about.css">
+        <link rel="stylesheet" href="assets/styles/app/modal.css">
         <link rel="stylesheet" href="assets/styles/page/index.css">
         
         <!-- Font Awesome -->
@@ -28,26 +29,35 @@
     </head>
     <body>
 
-		<div class="modal-wrapper">
-			<img src="#" alt="profile picture">
-			<div class="modal-header">
-				<div class="modal-name">
-					
+		<div class="wrapper">
+			<div class="modal-wrapper">
+				<div class="modal-header">
+					<div class="modal-name">
+						Jon Maldia
+					</div>
+				</div>
+				<div class="modal-info">
+					<div class="phone">
+						<i class="fas fa-phone-volume"></i>
+						<p class="modal-phone">555-333-4343</p>
+						<!-- edit -->
+					</div>
+					<div class="email">
+						<i class="fas fa-envelope-square"></i>
+						<p class="modal-email">you@email.com</p>
+						<!-- edit -->
+					</div>
+				</div>
+				<div class="buttons">
+					<button class="save">Save</button>
+					<button class="delete">Delete</button>
+				</div>
+
+				<div class="modal-img">
+					<img src="https://pbs.twimg.com/profile_images/941845342294769665/KMdu0q3e_400x400.jpg" alt="profile picture">
 				</div>
 			</div>
-			<div class="phone">
-				<!-- icon -->
-				<p class="modal-phone"></p>
-				<!-- edit -->
-			</div>
-			<div class="email">
-				<!-- icon -->
-				<p class="modal-email"></p>
-				<!-- edit -->
-			</div>
-			<button class="save">Save</button>
-			<button class="delete">Delete</button>
-		</div>
+		</div>	
 
     </body>
 </html>

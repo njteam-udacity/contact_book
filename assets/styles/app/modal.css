@@ -1,0 +1,99 @@
+* {
+	box-sizing: border-box;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.modal-wrapper {
+	margin-top: 200px;
+	width: 350px;
+	height: 500px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	-webkit-box-shadow: -1px 9px 18px -4px rgba(179,179,179,1);
+	-moz-box-shadow: -1px 9px 18px -4px rgba(179,179,179,1);
+	box-shadow: -1px 9px 18px -4px rgba(179,179,179,1);
+}
+
+.modal-header {
+	padding-top: 35px;
+	height: 170px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: #559EAE;
+	text-align: center;
+	font-size: 30px;
+	color: #ffffff;
+	text-transform: uppercase;
+}
+
+.modal-img {
+	position: relative;
+	top: -350px;
+	left: 100px;
+}
+
+.modal-img img {
+	width: 150px;
+	border-radius: 50%;
+	border: 6px solid #ffffff;
+}
+
+.modal-info {
+	width: 100%;
+	margin-top: 100px;
+}
+
+.phone, .email {
+	width: 80%;
+	height: 70px;
+	margin: 0 auto;
+	border: 1px solid #777777;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 20px;
+	color: #555555;
+	padding-left: 30px;
+}
+
+.phone {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.email {
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.fas {
+	padding-right: 30px;
+}
+
+button {
+	width: 100px;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	padding: 10px;
+	text-transform: uppercase;
+}
+
+.buttons {
+	position: relative;
+	bottom: -25px;
+	text-align: center;
+}
+
+.save {
+	border: 1px solid #27ae60;
+}
+
+.delete {
+	border: 1px solid #c0392b;
+}
