@@ -11,6 +11,7 @@ html, body {
   text-align: center;
 
 }
+
 .contacts ul{
     list-style-type: none;
     padding-left: 0;
@@ -24,7 +25,7 @@ html, body {
     height: 780px;
 }
 
-.contacts ul.header.labels {
+.contacts ul.labels {
     margin-top: 120px;
 }
 /* contact-list container */
@@ -64,11 +65,33 @@ html, body {
     margin-left:0;
 }
 .contacts ul.header .container .col:last-child {
-    text-align: right;
+    margin-left: 40px;
 }
 
 
 /*add contact form */
+.contacts .form-table{
+
+    display: table;
+    width: 100%;
+}
+
+.contacts .form-row {
+    display: table-row;
+}
+
+.contacts .form-cell {
+    width: 20%;
+    padding-right: 10px;
+    display: table-cell;
+    vertical-align: middle;   
+}
+
+.contacts .form-cell:first-child,
+.contacts .form-cell:last-child{
+    width: 15%;
+}
+
 .contacts form [type="file"] {
     display: none; 
 }
@@ -101,15 +124,6 @@ html, body {
 }
 
 
-.contacts .contact-name {
-    overflow: hidden;
-}
-
-.contacts .contact-phone,
-.contacts .contact-email {
-    margin-right: 25px;
-}
-
 /* Group container for the edit and delete buttons */
 .contacts .controls {
     font-size: 25px;
@@ -117,8 +131,18 @@ html, body {
 
 /* Control buttons */
 .contacts .controls .control-button {
-    padding:25px
+    padding: 25px 25px 25px 0;
 }
+
+/* .contacts i.fas {
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+} */
+
+/* .contacts .add i.fas {
+    margin: 0 30px;
+} */
 .contacts .controls .control-button.add {
     color: green;
 }
@@ -128,7 +152,7 @@ html, body {
 .contacts .controls .control-button.edit:hover {
     color: blue
 }
-.contacts .controls .control-button.trash:hover {
+.contacts .controls .control-button.delete:hover {
     color: red;
 }
 /* footer of contacts page */
@@ -143,11 +167,7 @@ html, body {
        padding: 0px;
        text-align: center;
     }
-
-    .contacts ul.header{
-        display: none;
-    }
-
+     
     .contacts .contact {
         width: 100%;
         text-align: center;
@@ -191,12 +211,16 @@ html, body {
     
 }
 
-@media only screen and (max-width:  400px) {
+@media only screen and (max-width: 720px) {
     
-    .contacts ul.list {
-        margin-top: 30%;
+    .contacts ul.labels{
+        display: none;
     }
-
+    
+    .contacts form {
+        margin-top: 25%;
+    }
+    
     .contacts .contact {
         font-size: 15px;
     }
@@ -204,6 +228,17 @@ html, body {
         height: 100%;
         width: 100%;
     }
+    .contacts .control-button i {
+
+        padding: 50px;
+
+    }
+
+}
 
 
+@media only screen and (max-width: 400px) {
+    .contacts .form-cell {
+        display: table-row;
+    }
 }

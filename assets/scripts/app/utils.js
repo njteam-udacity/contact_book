@@ -32,7 +32,21 @@
          * @param {object} Object containing content data. 
          */
         renderPage: function (template, data) {       
-            $(document.body).append(template(data));     
+            $(document.body).append(template(data));
+            this.refreshHash();  
+        },
+
+        /**
+         * This function will refresh the page to target any hash links eg. #about
+         * Since we are using templating, the page will not have all of its elements loading into the DOM
+         * rightaway. It is only after a few async calls, http services etc, and after page components
+         * are readied and loaded into the page. Only then should we fetch/target anchor tags/ hash links.
+         * 
+         */
+        refreshHash: function () {
+            var hash = location.hash;
+                location.hash = "";
+                location.hash = hash;
         },
         /**
          * Delimiter
@@ -56,6 +70,22 @@
 
             return objMap;
             
+
+        },
+
+        imageUploadHelper: function () {
+            let elm = document.getElementById('avatar');
+            let img = elm.files[0];
+            let fileName = img.name; // not path
+            let fileSize = img.size; // bytes
+            let reader = new FileReader();
+            
+            reader.addEventListener('loadend', function (){
+                let base64 = btoa(binary);
+            }, false);
+            reader.readAsBinaryString(img);
+            
+            $("img").first().attr("src", "data:image/jpeg;base64," + base64);
 
         },
 
