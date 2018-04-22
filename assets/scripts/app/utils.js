@@ -72,23 +72,8 @@
             
 
         },
-
-        imageUploadHelper: function () {
-            let elm = document.getElementById('avatar');
-            let img = elm.files[0];
-            let fileName = img.name; // not path
-            let fileSize = img.size; // bytes
-            let reader = new FileReader();
-            
-            reader.addEventListener('loadend', function (){
-                let base64 = btoa(binary);
-            }, false);
-            reader.readAsBinaryString(img);
-            
-            $("img").first().attr("src", "data:image/jpeg;base64," + base64);
-
-        },
-
+         
+        // This function handles any async service request errors
         checkForErrors: function(cb) {
 
             return function(error, result) {
