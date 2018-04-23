@@ -118,7 +118,7 @@ We created an html template of an html component or page and stored it in a sepa
   This technique is intended so that we can dynamically append templates to the DOM during run-time.
   This demo template itself, is just a pair of header tags with a greeting inside followed by a pair of paragraph tags with a message inside.
   
-- Also, notice the two pairs of curly braces inside the html tags. They are handlebars tags used to signify a dynamic point in the template where Handlebars will insert some content.
+- Also, notice the two pairs of curly braces inside the html tags. The {{ ... }} placeholders in the file are Handlebars expressions. They will be replaced with the property values of the JSON content file.
 
 
 Once you have the template, the next step is the interesting part. We call the **Handlebars compile** function to process the template *source*. **Handlebars compile** returns a function that accepts a data object as its parameter.

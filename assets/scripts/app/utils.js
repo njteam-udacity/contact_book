@@ -32,7 +32,21 @@
          * @param {object} Object containing content data. 
          */
         renderPage: function (template, data) {       
-            $(document.body).append(template(data));     
+            $(document.body).append(template(data));
+            this.refreshHash();  
+        },
+
+        /**
+         * This function will refresh the page to target any hash links eg. #about
+         * Since we are using templating, the page will not have all of its elements loading into the DOM
+         * rightaway. It is only after a few async calls, http services etc, and after page components
+         * are readied and loaded into the page. Only then should we fetch/target anchor tags/ hash links.
+         * 
+         */
+        refreshHash: function () {
+            var hash = location.hash;
+                location.hash = "";
+                location.hash = hash;
         },
         /**
          * Delimiter
@@ -58,7 +72,8 @@
             
 
         },
-
+         
+        // This function handles any async service request errors
         checkForErrors: function(cb) {
 
             return function(error, result) {
