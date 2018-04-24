@@ -1,9 +1,10 @@
 {{> partials_header}}
 <section class="contacts wrapper">
-      <ul class="labels">
+    <div class="left-partition"> 
+        <ul class="labels">
         <li class="contact">
             <div class="container">
-                <div class="form-table">
+                <div class="form-table lables">
                     <div class="form-row">
                         <div class="form-cell">
                             <h3> Avatar </h3>
@@ -25,7 +26,7 @@
             </div>
         </li>
     </ul>
-  <form action="">
+  <form class="hidden">
       <ul>
         <li class="contact">
             <div class="container">
@@ -43,20 +44,20 @@
                         </div>
                         <div class="form-cell">
                             <div class="contact-name">
-                                <input type="text" name="name" class="form-control input-lg" placeholder="Enter name">
+                                <input type="text" name="name" class="form-control input-lg" placeholder="Enter name" required>
                             </div>
                         </div>
                         <div class="form-cell">
                             <div class="contact-phone">
                                 <div>
-                                    <input type="tel" name="phone" class="form-control input-lg" placeholder="Enter email">
+                                    <input type="tel" name="phone" class="form-control input-lg" placeholder="Enter email" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-cell">
                             <div class="contact-email">
                                 <div>
-                                    <input type="email" name="email" class="form-control input-lg" placeholder="Enter phone# ">
+                                    <input type="email" name="email" class="form-control input-lg" placeholder="Enter phone#" required>
                                 </div>
                             </div>
                         </div>
@@ -95,33 +96,38 @@
   </form>
   <div class="rolodex">
     <ul class="list">
-        <li class="contact">
+        {{!-- TO DO move list to tabular layout
+           <li class="contact">
             <div class="container">
-                <figure class="avatar col-sm-1">
-                <img src={{page_contacts.avatar}} alt="avatar">
-            </figure>
-            <div class="name col-sm-3">
-                <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                 <div class="form-table">
+                    <div class="form-row">
+                        <div class="form-cell"> 
+                             <figure class="avatar col-sm-1">
+                                <img src={{page_contacts.avatar}} alt="avatar">
+                            </figure>
+                        </div>
+                        <div class="form-cell"> 
+                            <h3 class="contact-name"> <a href="/">Example Foryou</a></h3>
+                        </div>
+                        <div class="form-cell"> 
+                            <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3>
+                        </div>
+                        <div class="form-cell"> 
+                             <h3 class="contact-email"><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a>
+                        </h3> 
+                        </div>
+                        <div class="form-cell"> 
+                            <div class="control-button edit">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="control-button delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="details col-sm-5">
-                <div>
-                    <h3 class="contact-phone"><a href="tel:(201) 555-1234">(201) 555-1234</h3>
-                </div>
-                <div>
-                    <h3 class="contact-email"
-                     ><a href="mailto:njudacity@gmail.com">njudacity@gmail.com</a>
-                     </h3> 
-                </div>
-            </div>
-            <div class="controls col-sm-2">
-                <div class="control-button edit">
-                    <i class="fas fa-edit"></i>
-                </div>
-                <div class="control-button delete">
-                    <i class="fas fa-trash-alt"></i>
-                </div>
-            </div>
-        </li>
+        </li> --}}
         <li class="contact">
             <div class="container">
                 <figure class="avatar col-sm-1">
@@ -488,6 +494,16 @@
         </li>
     </ul>
   </div>
+  
+    </div>
+    <div class="right-partition">
+      <aside>
+          <button class="plus-btn control-btn add">
+            <i class="fas fa-plus-circle"></i>
+          </button>
+      </aside>
+    </div>
+      
   
 </section>
 
