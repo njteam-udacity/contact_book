@@ -2,12 +2,12 @@
 	box-sizing: border-box;
 }
 
-.wrapper {
+.modal-wrapper {
 	display: flex;
 	justify-content: center;
 }
 
-.modal-wrapper {
+.modal-wrapper .modal-wrapper {
 	margin-top: 240px;
 	width: 350px;
 	height: 500px;
@@ -18,7 +18,7 @@
 	box-shadow: -1px 9px 18px -4px rgba(179,179,179,1);
 }
 
-.close {
+.modal-wrapper .close {
 	font-size: 30px;
 	color: #ffffff;
 	position: relative;
@@ -26,11 +26,11 @@
 	right: -9px;
 }
 
-.close:hover {
+.modal-wrapper .close:hover {
 	color: #ff6b6b;
 }
 
-.modal-header {
+.modal-wrapper .modal-header {
 	padding-top: 35px;
 	height: 170px;
 	border-top-right-radius: 5px;
@@ -42,24 +42,24 @@
 	text-transform: uppercase;
 }
 
-.modal-img {
+.modal-wrapper .modal-img {
 	position: relative;
 	top: -350px;
 	left: 100px;
 }
 
-.modal-img img {
+.modal-wrapper .modal-img img {
 	width: 150px;
 	border-radius: 50%;
 	border: 6px solid #ffffff;
 }
 
-.modal-info {
+.modal-wrapper .modal-info {
 	width: 100%;
 	margin-top: 100px;
 }
 
-.phone, .email {
+.modal-wrapper .phone, .modal-wrapper .email {
 	width: 80%;
 	height: 70px;
 	margin: 0 auto;
@@ -73,22 +73,22 @@
 	padding-left: 30px;
 }
 
-.phone {
+.modal-wrapper .phone {
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 	border-bottom: none;
 }
 
-.email {
+.modal-wrapper .email {
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
 
-.fas {
+.modal-wrapper .fas {
 	padding-right: 30px;
 }
 
-button {
+.modal-wrapper button {
 	width: 100px;
 	border: none;
 	border-radius: 3px;
@@ -97,7 +97,7 @@ button {
 	text-transform: uppercase;
 }
 
-.buttons {
+.modal-wrapper .buttons {
 	position: relative;
 	bottom: -25px;
 	text-align: center;
@@ -105,12 +105,12 @@ button {
 	font-weight: 600;
 }
 
-.save {
+.modal-wrapper .save {
 	background-color: #10ac84;
 	margin: 0 5px;
 }
 
-.delete {
+.modal-wrapper .delete {
 	background-color: #ff6b6b;
 	margin: 0 5px;
 }
