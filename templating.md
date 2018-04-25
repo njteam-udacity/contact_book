@@ -105,10 +105,10 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
           })(window.app, app.utils.checkForErrors);
 
       ```
-    - *Tip*: If your page does not have any "page specific scripts" right away, that is fine too. Still add the IIFE and the initializer code base to the script file for that page and save it. When/if you add code speficif to the page like page event listeners or other functions, make sure those functions are nested inside the IIFE as shown above.
+    - *Tip*: If your page does not have any "page specific scripts" right away, that is fine too. Still add the IIFE and the initializer code base to the script file for that page and save it. When/if you add code specific to the page like page event listeners or other functions, make sure that those functions are nested inside the IIFE as shown above.
 
 6. If you want to insert partials in a page template, the next step would be to place the appropriate partial tags in your template.
-    - Example greeting.hbs template tagged with header and footer partials.
+    - Example greeting.hbs template tagged with header and footer partials. Partial syntax: {{> foldername/file }}
       ```
         {{> partials/header}}
 
@@ -124,8 +124,8 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
     - Example: **assets/scripts/page/greetings.js**
     - *Tip*: If your style or script is for a partial it should be saved in a file under styles/app/ or scripts/app.
 
-8. Lastly, be sure to include **all** dependencies (stylesheet links & script tags) into the head of the of the corresponding html page where your template will be rendered.
-    - High level example: Html of the "greeting" page. Be certain that your script file containing the       page initializer scripts is added to the head element **last**. In this case greetings.js is loaded last as shown below.
+8. Lastly, be sure to include **all** dependencies (stylesheet links & script tags) into the head of the corresponding html page where your template will be rendered.
+    - High level example of the "greeting" page. Be certain that your script file containing the page initializer scripts is added to the head element **last** after jquery, bootstrap, services and etc. In this case greetings.js is loaded last as shown below:
       ```
       <!doctype html>
           <html>
@@ -146,7 +146,7 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
       ```
 
 9. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
-"{{#each}}" and {{#if}} that can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
+"{{#each}}" and {{#if}} which can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
 
 ## How it all works!
 We created an html template of an html component or html page and stored it in a separate file under the templates folder. (e.g: templates/greeting.hbs)
