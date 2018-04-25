@@ -70,7 +70,7 @@
                 var templates = {};
 
                 for (var filename in fileContents) {
-                    
+
                     // textFileContent variable represent a layout 
                     //or partial "source" in templates.
                     var textFileContent = fileContents[filename];

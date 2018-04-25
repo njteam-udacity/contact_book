@@ -35,19 +35,28 @@
      * This function adds event listners to the contact page.
      */
     function addEventListeners(){
-       
-        $(document).on("click", '.delete, .add, .edit', function (e){
-            
+        
+        $(document).on("click", ".add, .edit, .delete", function (e) {
+
             var $target = $(e.target);
             
-            if ($target.hasClass("add") || $target.parent("div").hasClass("add")) {
-               console.log ($("form").serializeArray());
+            if ($target.hasClass("add") || $target.parent("button").hasClass("add")) {
+                $target.toggleClass("active");
+                $(".contacts form").toggleClass("hidden");
             }
-        });
 
+        });
+        
+        $("form").on("submit", function (e){
+            e.preventDefault();
+        });
+        
         $("input#avatar").on("change", function (e){
             imageUploadHelper(e.target);
         })
+        
+        // Use a switch statement for edit, delete  e,target.value instead of
+        //classname. 
 
         // $(window)
         //     // does something when ".selector" is clicked.
