@@ -1,3 +1,29 @@
 {
-   "avatar" : "assets/images/myexample.png" 
+   "form": {
+            "profile"      : "/assets/images/profile.png",
+            "profile-desc" : "Profile img",
+            "input-browse" : "Browse",
+            "btn-submit" : "Submit",
+            "name-ph"      : "Enter name", 
+            "email-ph"     : "Enter email",
+            "phone-ph"     : "Enter phone#"
+    },
+        
+   "labels": {
+            "title"     : "Avatar",
+            "name"      : "Full name",
+            "email"     : "Email",
+            "phone"     : "Phone",
+            "controls"  : "Controls"
+    },
+
+    "details" : {
+            "avatar"      : "/assets/images/myexample.png",
+            "avatar-desc" : "Avatar",
+            "name"        : "Anonymous",
+            "email"       : "default@mainemail.com",
+            "phone"       : "(111) 123-4567"
+    }
+
+
 }

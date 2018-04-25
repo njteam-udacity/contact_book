@@ -7,34 +7,34 @@
                         <div class="form-cell">
                             <div class="contact-avatar">
                                 <figure class="avatar">
-                                    <img id="thumbnail" src="/assets/images/profile.png" alt="profile-avatar">
+                                    <img id="thumbnail" src="{{page_contacts.form.profile}}" alt="{{page_contacts.form.profile-desc}}">
                                 </figure>
                                 <label class="btn btn-default btn-file btn-lg">
-                                    <input id="avatar" type="file" name="avatar" class="form-control input-lg"> Browse..
+                                    <input id="avatar" type="file" name="avatar" class="form-control input-lg"> {{page_contacts.form.input-browse}}
                                 </label>
                             </div>
                         </div>
                         <div class="form-cell">
                             <div class="contact-name">
-                                <input type="text" name="name" class="form-control input-lg" placeholder="Enter name" required>
+                                <input type="text" name="name" class="form-control input-lg" placeholder="{{page_contacts.form.name-ph}}" required>
                             </div>
                         </div>
                         <div class="form-cell">
                             <div class="contact-phone">
                                 <div>
-                                    <input type="tel" name="phone" class="form-control input-lg" placeholder="Enter email" required>
+                                    <input type="tel" name="phone" class="form-control input-lg" placeholder="{{page_contacts.form.email-ph}}" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-cell">
                             <div class="contact-email">
                                 <div>
-                                    <input type="email" name="email" class="form-control input-lg" placeholder="Enter phone#" required>
+                                    <input type="email" name="email" class="form-control input-lg" placeholder="{{page_contacts.form.phone-ph}}" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-cell">
-                            <button type="submit" class="btn-light btn-lg">Submit</button>
+                            <button type="submit" class="btn-light btn-lg">{{page_contacts.form.btn-submit}}</button>
                         </div>    
                     </div>
                 </div>

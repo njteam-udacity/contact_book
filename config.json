@@ -1,8 +1,9 @@
 {
     "templates": [
-        "page/index", "partials/footer", "partials/header", 
-        "page/contacts", "partials/contact/list-header", "partials/contact/form",
-         "partials/contact/list" ,"partials/contact/aside","partials/about","page/modal"
+        "page/index", "page/contacts", "page/modal", 
+         "partials/footer", "partials/header", "partials/about", 
+         "partials/contact/labels", "partials/contact/form",
+         "partials/contact/list" ,"partials/contact/aside", "partials/contact/details"
     ],
     "content": ["shared/global", "page/index", "page/contacts", "page/modal"]
 }
