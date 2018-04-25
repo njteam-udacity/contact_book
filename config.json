@@ -2,7 +2,7 @@
     "templates": [
         "page/index", "partials/footer", "partials/header", 
         "page/contacts", "partials/contact/list-header", "partials/contact/form",
-         "partials/contact/list" ,"partials/contact/aside","partials/about"
+         "partials/contact/list" ,"partials/contact/aside","partials/about","page/modal"
     ],
-    "content": ["global", "page/index", "page/contacts"]
+    "content": ["shared/global", "page/index", "page/contacts", "page/modal"]
 }

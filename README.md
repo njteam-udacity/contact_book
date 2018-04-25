@@ -82,26 +82,26 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 |    ├── audio/
 |    ├── images/
 |    ├── scripts/
-|    |       ├── app/ (global)
+|    |       ├── app/ (shared)
 |    |       ├── page/ (page specific js)
 |    |       └── vendors/ (public libraries)
 |    └── styles/
-|    |       ├── app/ (global)
+|    |       ├── app/ (shared)
 |    |       ├── fonts/
 |    |       ├── page/ (page specific css)
 |    |       └── vendors/ (public libraries)
 ├── content/
 |    └── en/
 |         ├── page/ (page/template specific content)
-|         |
-|         └──global.json
+|         └── shared/
+                └── global.json
 ├── data/
 |    └── contacts.json
 |
 ├── node_modules/
 |
 ├── templates/
-|    ├── partials/ (page component templates)
+|    ├── partials/ (shared templates)
 |    └── page/ (page specific templates)
 |
 ├── .gitignore
