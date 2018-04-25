@@ -25,6 +25,7 @@
         <script src="/assets/scripts/app/storage.js"></script>
         <script src="/assets/scripts/app/services.js"></script>
         <script src="/assets/scripts/app/about.js"></script>
+        <script src="/assets/scripts/page/modal.js"></script>
         <script src="/assets/scripts/page/index.js"></script>
     </head>
     <body>
@@ -58,27 +59,7 @@
 					<img src="https://pbs.twimg.com/profile_images/941845342294769665/KMdu0q3e_400x400.jpg" alt="profile picture"> <!-- This should be dynamic -->
 				</div>
 			</div>
-		</div>	
-
-		<script>
-			// Get the modal
-			var modal = document.getElementById('profile-modal');
-
-			// Get the element that closes the modal
-			var close = document.getElementsByClassName('close');
-
-			// When the user clicks on (x), close the modal
-			close.onclick = function() {
-			    modal.style.display = "none";
-			}
-
-			// When the user clicks anywhere outside of the modal, close it
-			window.onclick = function(event) {
-			    if (event.target == modal) {
-			        modal.style.display = "none";
-			    }
-			}
-		</script>
+		</div>
 
     </body>
 </html>
