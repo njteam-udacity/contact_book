@@ -1,3 +1,9 @@
+/**
+ * This IIFE function (module pattern) privately contains our page specific source code.
+ * Short reference on module patterns: http://adripofjavascript.com/blog/drips/understanding-the-module-pattern-in-javascript.html.
+ * @param{objectapp} is the global object shared across the application, passed to our function as an argument.
+ * @param{chkErr} is our error handling function that is called before async requests. 
+ */
 (function(app, chkErr) {
 
 /**
@@ -5,19 +11,15 @@
  */    
     $(initializeApplication);
 
-    /**
+    /**  
      * This function gathers VIEW dependencies for this page(templates, contents)
      * then renders the page.
      */
     function initializeApplication() {
 
         app.utils.getPageResources(chkErr(function(templates, content, config) {
-            
-            //if moving templates into globally shared file. Uncomment below.
-            // app.templates = templates;
-            // app.content = content;
                 
-            app.utils.renderPage(/*app.*/templates.page_contacts, /*app.*/content);
+            app.utils.renderPage(templates.page_contacts, content);
             addEventListeners();
 
         }));
