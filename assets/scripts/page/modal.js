@@ -1,3 +1,20 @@
+(function(app, chkErr) {
+
+    $(initializeApplication);
+
+    function initializeApplication() {
+
+        app.utils.getPageResources(chkErr(function(templates, content, config) {
+
+            // app.templates = templates;
+            // app.content = content;
+                
+            app.utils.renderPage(/*app.*/templates.page_modal, /*app.*/content);            
+        
+        }));
+
+    }
+
 // Get the modal
 var modal = document.getElementById('profile-modal');
 
@@ -15,3 +32,4 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+})(window.app, app.utils.checkForErrors);

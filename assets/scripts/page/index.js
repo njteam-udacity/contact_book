@@ -4,25 +4,13 @@
 
     function initializeApplication() {
 
-        app.services.getConfig(chkErr(function(config) {
+        app.utils.getPageResources(chkErr(function(templates, content, config) {
 
-            app.services.getTemplates(config.templates, chkErr(function(templates) {
-                 
-                app.templates = templates;
-
-                app.services.getContent(config.content, chkErr(function(content) {
-
-                    app.content = content;
+            // app.templates = templates;
+            // app.content = content;
                 
-                    app.utils.renderPage(app.templates.page_index, app.content);
-                    
-                    // TO DO move this method from about to navigation
-                    app.about.addNavigationMod();
-        
-                }));
-                
-            }));
-
+            app.utils.renderPage(/*app.*/templates.page_index, /*app.*/content);
+            
         }));
 
     }

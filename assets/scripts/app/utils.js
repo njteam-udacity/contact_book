@@ -24,16 +24,80 @@
         },
 
         /**
+         * This function gathers view dependencies(templates, contents)
+         * then renders the page.
+         */
+        getPageResources: function(callback) {
+
+            app.services.getConfig(function(error, config) {
+
+                if (error) { return callback(error); }
+
+                app.services.getTemplates(config.templates, function(error, templates) {
+                    
+                    if (error) { return callback(error); }
+
+                    app.services.getContent(config.content, function(error, content) {
+
+                        if (error) { return callback(error); }
+                        
+                        // everything went well
+                        callback(/*error*/null, templates, content, config);
+
+                    });
+                    
+                });
+
+            });
+
+        },
+
+        identifyPageRootElement: function() {
+                        // get the page path without query or fragment
+                        // and extract the name form it
+            var pageName = app.utils.resolveNameFromPath(location.pathname);
+            app.utils.getPageRootElement().attr( "id", pageName);
+
+        },
+
+
+        resolveNameFromPath: function(path) {
+            return app.utils.getNameFromPath(path, "index");
+        },
+
+        getNameFromPath: function(path, ifEmpty) {
+
+            return path
+                // paths always satrt with / so remove the first character
+                .substring(1)
+                // split any potential additional path segments (e.g. about/us becomes ["about", "us"])
+                .split('/')
+                // get the last path segment
+                .pop()
+                // remove potential .html from that last path segment (e.g about.html becomes about)
+                .replace('.html', '') || 
+                // if the result was empty, that means we were in the index page. it was empty
+                // because the index page can be referred to as just "/", which we dropped at .substring(1)
+                ifEmpty;
+            
+        },
+
+        getPageRootElement: function() {
+            return $(document.body);
+        },
+
+        /**
          * Utilize handlebars templating to bind an html template with 
          * content data, then used jQuery to render the page view.
          * template represent the template function, data represents the data object that
          * will be bound to the template.
-         * @param {string} html fragment/template.
-         * @param {object} Object containing content data. 
+         * @param {string} template fragment/template.
+         * @param {object} content containing content data. 
          */
-        renderPage: function (template, data) {       
-            $(document.body).append(template(data));
-            this.refreshHash();  
+        renderPage: function (template, content) {
+            app.utils.getPageRootElement().append(template(content));
+            app.utils.refreshHash();
+            app.utils.identifyPageRootElement();
         },
 
         /**
@@ -45,8 +109,8 @@
          */
         refreshHash: function () {
             var hash = location.hash;
-                location.hash = "";
-                location.hash = hash;
+            location.hash = "";
+            location.hash = hash;
         },
         /**
          * Delimiter
@@ -74,9 +138,12 @@
         },
          
         // This function handles any async service request errors
+        /**
+         * @param {Function cb}
+         */
         checkForErrors: function(cb) {
 
-            return function(error, result) {
+            return function(error/*, ...rest*/) {
 
                 // if there is an error
                 if (error) {
@@ -88,7 +155,14 @@
                     return;
                 }
 
-                cb(result);
+                // convert the arguments object to an array
+                var args = Array.prototype.slice.call(arguments, 0);
+                // loose the first argument (which was the error)
+                // since it has already been dealt with above
+                args.shift();
+                // finally, call the callback, passing it the
+                // rest of the arguments
+                cb.apply(this, args);
 
             }
 

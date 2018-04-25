@@ -5,27 +5,20 @@
  */    
     $(initializeApplication);
 
-/**
- * This function gathers view dependencies(templates, contents)
- * then renders the page.
- */
+    /**
+     * This function gathers VIEW dependencies for this page(templates, contents)
+     * then renders the page.
+     */
     function initializeApplication() {
 
-        app.services.getConfig(chkErr(function(config) {
-
-            app.services.getTemplates(config.templates, chkErr(function(templates) {
-                 
-                app.templates = templates;
-
-                app.services.getContent(config.content, chkErr(function(content) {
-
-                    app.content = content;
+        app.utils.getPageResources(chkErr(function(templates, content, config) {
+            
+            //if moving templates into globally shared file. Uncomment below.
+            // app.templates = templates;
+            // app.content = content;
                 
-                    app.utils.renderPage(app.templates.page_contacts, app.content);
-                    addEventListeners();
-                }));
-                
-            }));
+            app.utils.renderPage(/*app.*/templates.page_contacts, /*app.*/content);
+            addEventListeners();
 
         }));
 
