@@ -1,8 +1,8 @@
 /**
  * This IIFE function (module pattern) privately contains our page specific source code.
  * Short reference on module patterns: http://adripofjavascript.com/blog/drips/understanding-the-module-pattern-in-javascript.html.
- * @param{objectapp} is the global object shared across the application, passed to our function as an argument.
- * @param{chkErr} is our error handling function that is called before async requests. 
+ * @param {object} is the global object shared across the application, passed to our function as an argument.
+ * @param {Function} is our error handling function that is called before async requests. 
  */
 (function(app, chkErr) {
 
@@ -41,9 +41,25 @@
             }
 
         });
-        
+        //form values and files submit to local webstorage
         $("form").on("submit", function (e){
             e.preventDefault();
+            var entries = $(this).serializeArray();
+            var datafile = app.utils.getFormFiles($(this));
+
+            //adds uploaded files to the array of this form's input values.
+            //note: input of type file does not store files as 'values' it is stored
+            //as a files array. See: https://hacks.mozilla.org/2012/02/saving-images-and-files-in-localstorage/
+            if (datafile.length > 0) {
+
+                entries.splice(0,0,datafile[0]);
+
+            }
+            //TO DO push the image dataurl to entries array.
+            //TO DO remove values from form fields. 
+            //TO DO store form entry inside of the local storage.
+            
+            console.log(entries);
         });
         
         $("input#avatar").on("change", function (e){
@@ -61,79 +77,130 @@
     }
 
     /**
-     * The imageUploadHelper function enables us to use upload image files and encode them in base64.
-     * @param{string} references an img element to render thumbnail of the uploaded image.
-     * */ 
-    function imageUploadHelper (inputElem) {
-        var inputElem = document.getElementById('avatar');
+     * Handles user errors. Provides a way to communicate with the user.
+     * TO DO add a nicer overlay to communicate errors.
+     *@param {string} text that communicates error.  
+     * */
+    function broacastError(message) {
+        alert(message);
+    }
 
+    /**
+     * This function provides preview of an image as a thumbnail.
+     * It captures an instance of the image loaded from html input type file.
+     * If an image is not provided then we will insert a default image as a thumbnail. 
+     * @param {string} representing url path of the image
+     */
+    function setFormThumbnail(url){
+        $("#thumbnail").attr("src", url);
+        $("input[name='avatarSource']").val(url)
+    }
+
+    /**
+     * This function determines whether an image file is supported.
+     * @param {*} imgFile 
+     * @returns {Boolean} True if supported, false otherwise.
+     */
+    function canHandleImage(imgFile) {
+
+        if (isTooBig(imgFile.size)) {
+            broacastError("Image too big");
+            return false;
+        }
+        
+        if (isTooSmall(imgFile.size)) {
+            broacastError("Image too small");
+            return false;
+        }
+
+        if (!hasSupportedExtension(imgFile.name)) {    
+            broacastError("Image type is not supported");
+            return false;
+        }
+        
+        return true;
+
+    }
+
+    /**
+     * The imageUploadHelper function tests upload image files.
+     * If the image file pass criteria then the function will encode the image in base64.
+     * Then an preview of the image will be placed in the view as a thumbnail and
+     * the dataUrl will be stored in a designated form input element.
+     * Otherwise this function will notify the user the reason why that image file could not be loaded.
+     * 
+     * @param {object} HTMLInputElement references an input element of type file.
+     * */ 
+    function imageUploadHelper(inputElem) {
+       
+
+        if (!inputElem.value) {
+            // set the placeholder image back
+            setFormThumbnail("/assets/images/profile.png");
+            // we're done here
+            return;
+
+        }
+        
         if (window.FileReader) {
             
             var imgFile = inputElem.files[0];
             
-            var reader = validateFile(imgFile);
+            // handle errors
+            if (!canHandleImage(imgFile)) {
+                // bad image, we're done here
+                return;
+            }
             
+            var reader = new FileReader();
 
-            try {
+            reader.addEventListener('loadend', function() {
+                setFormThumbnail(reader.result);
+            }, false);
 
-                if (reader != null) {
+            reader.addEventListener('error', function() {
+                broacastError("Can't upload image!");
+            }, false);
 
-                reader.addEventListener('loadend', function (){
-                $("#thumbnail").removeAttr('src').attr("src", reader.result);
-                }, false);
+            reader.readAsDataURL(imgFile);
 
-                reader.readAsDataURL(imgFile);
-                }
-            }
-            catch(error){
-                console.error(error);
-            }
         }
         else {
-            alert("Image upload is not supported in this browser");
+            broacastError("Image upload is not supported in this browser");
         }
+
     }
     
+    /**
+     * This function tests whether an image file type is acceptible.'
+     * This function maybe replaced when using layer of checking in the input 
+     * element's attribute: accept="image/*". It allows the browser to validate
+     * the file.
+     * @param {string} filepath
+     * @returns {boolean} 
+     */
+    function hasSupportedExtension(path) {
+        return /\.(jpe?g|png|gif)$/i.test(path);
+    }
 
     /**
-     * This function will validate image files uploaded with the following criteria:
-     * File size is great then 1 kb
-     * File size under 1 mb
-     * File type is .gif, .jpg, .jpeg, or .png
-     * 
-     * @param {object} type HTMLInputElement type file.  
-     * @returns{object|null} if criteria is meet then returns new windows.FileReader.
+     * This function tests whether an file size is too small.
+     * @param {string} filepath
+     * @returns {boolean} 
      */
-    function validateFile (file) {
+    function isTooSmall(size) {
+        return size < 1000;
+    }
 
-        try {
-                // Make sure `fileName` matches our extensions criteria
-            if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
-            // Make sure `filesize` matches our size criteria.
-                if (file.size > 1000 && file.size < 100700) {
+    /**
+     * This function tests whether an file size is too large.
+     * @param {string} filepath
+     * @returns {boolean} 
+     */
+    function isTooBig(size) {
+        return size > 100700
+    }
 
-                    return new FileReader();
-
-                }
-                else {
-
-                    alert("Please make sure your image is bigger then 1kb and less than 1mb");
-                    return null;
-                }
-            }
-            else {
-
-                alert("Upload one of the supported file types:.gif, .jpg, .jpeg, .png");
-                return null;
-
-            }
-        }            
-        catch(error) { //log error.
-            console.error(error);
-        }
-        
-    }  
-             
             // Move contact list into a tabular display table layout
             //TO DO MOVE FORM DATA Properties TO LOCAL STORAGE
             // delete $(e.target).closest("li").remove();

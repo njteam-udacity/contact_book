@@ -60,7 +60,11 @@
 
         },
 
+        getPageRootElement: function() {
+            return $(document.body);
+        },
 
+         
         resolveNameFromPath: function(path) {
             return app.utils.getNameFromPath(path, "index");
         },
@@ -82,8 +86,28 @@
             
         },
 
-        getPageRootElement: function() {
-            return $(document.body);
+        /**
+         * This function gathers all html input elements of type file. It then inspects and gathers
+         * all files uploaded to each input type file.   
+         * @param {HTMLform element} Html element of type form.
+         * @return {Array} containing data files stored in input elements.
+         * reference = https://gist.github.com/oswaldoacauan/7580474
+         * */
+        getFormFiles : function($form) {
+            var form = $form,
+                datafiles = [];
+            
+            $.each(form.find('input[type="file"]'), function(i, tag) {
+                 
+                if(tag.files) {
+                    $.each(tag.files, function(i, file) {
+                     datafiles.push(file);
+                    });
+                }
+
+            });
+            
+            return datafiles;
         },
 
         /**
