@@ -161,12 +161,12 @@
 
         },
          
-        // This function handles any async service request errors
         /**
-         * @param {Function cb}
-         */
+         * This function handles any async service request errors
+         * @param {Function} a callback function.
+        */
         checkForErrors: function(cb) {
-
+            //returns a function. This function is not resolved right away.
             return function(error/*, ...rest*/) {
 
                 // if there is an error
