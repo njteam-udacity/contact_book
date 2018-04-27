@@ -46,52 +46,18 @@
         //form values and files submit to local webstorage
         $("form").on("submit", function (e){
             e.preventDefault();
+
             var formEntry = $(this).serializeArray();
             
-            //adds uploaded files to the array of this form's input values.
-            //note: input of type file does not store files as 'values' it is stored
-            //as a files array. See: https://hacks.mozilla.org/2012/02/saving-images-and-files-in-localstorage/
-
-            // if (datafile.length > 0) {
-
-            //     entries.splice(0,0,datafile[0]);
-
-            // }
-            //TO DO push the image dataurl to entries array.
-            //TO DO remove values from form fields. 
-            //TO DO store form entry inside of the local storage.
-            app.storage.getData(chkErr(function(data) {
-            
-                if (data.length > 0) {
-
-                    for (var i = 0; i < data.length; i++ ) {
-
-                        contacts.push(data[i]);
-                    }   
-
-                }
-                contacts.push(formEntry);    
-                
-                app.storage.setData(contacts, chkErr(function () {
-
-                    //To do make an overlay to display this message. 
-                    alert("contact saved!");
-
-                }));
-                //To do generate a new list item with the contact data.
-                //Pass the data to the contacts.js file.
-                app.storage.addDataListener();
-                
-            }));
+            aggragateContactStorage(formEntry);
+            this.reset();
+            setFormThumbnail("/assets/images/profile.png");
         });
 
         $("input#avatar").on("change", function (e){
             imageUploadHelper(e.target);
         });
         
-        // Use a switch statement for edit, delete  e,target.value instead of
-        //classname. 
-
         // $(window)
         //     // does something when ".selector" is clicked.
         //     .on('click', '.selector', function() {
@@ -194,6 +160,41 @@
 
     }
     
+    /**
+     * This function stores a list of contacts into local storage
+     * @param {array} arrOfContacts 
+     */
+    function setContactsInStorage (contactList){
+        app.storage.setData(contactList, chkErr(function () {
+
+            //To do make an overlay to display this message. 
+            alert("contact saved!");
+
+        }));
+    }
+    /**
+     * This function gets a list of contacts out of local storage to analyze and 
+     * aggregates the contact list when a new entry is added.
+     * 
+     * @param {array} arrOfContacts 
+     */
+    function aggragateContactStorage(storedContacts) {
+
+        app.storage.getData(chkErr(function(data) {
+                
+            if (data.length > 0) {
+
+                for (var i = 0; i < data.length; i++ ) {
+
+                    contacts.push(data[i]);
+                }   
+
+            }
+            contacts.push(storedContacts);    
+            setContactsInStorage(contacts);
+        }));
+    }
+
     /**
      * This function tests whether an image file type is acceptible.'
      * This function maybe replaced when using layer of checking in the input 
