@@ -49,7 +49,9 @@
             if ($target.hasClass("delete") || $target.parent("button").hasClass("delete")) {
                 
                 if (confirm("Are you sure that you want to delete this contact?")) {
+                    removeContactFromStorage($target.closest("li").data("name"));
                     $target.closest("li").remove();
+
                 }
                 
             }
@@ -62,9 +64,9 @@
 
             var formEntry = $(this).serializeArray();
             
-            aggregateContactStorage(formEntry);
-            debugger;
-            createNewListItem("list", formEntry);
+            addContactToStorage(formEntry);
+            
+            // createNewListItem("list", formEntry);
 
             //reset the form
             this.reset();
@@ -187,7 +189,7 @@
         app.storage.setData(contactList, chkErr(function () {
 
             //To do make an overlay to display this message. 
-            alert("contact saved!");
+            return "success";
 
         }));
     }
@@ -195,10 +197,10 @@
      * This function gets a list of contacts out of local storage to analyze and 
      * aggregates the contact list when a new entry is added.
      * 
-     * @param {array} arrOfContacts 
+     * @param {array} contact details 
      */
-    function aggregateContactStorage(storedContacts) {
-
+    function addContactToStorage(contact) {
+        var status = "";
         app.storage.getData(chkErr(function(data) {
                 
             if (data.length > 0) {
@@ -209,8 +211,43 @@
                 }   
 
             }
-            contacts.push(storedContacts);    
-            setContactsInStorage(contacts);
+            contacts.push(contact);    
+            status =  setContactsInStorage(contacts);
+            if (status = "success") {
+                // app.utils.renderPage(contactTemplates, contactContents)
+                alert("Contact Saved");
+            }
+        }));
+    }
+    
+    /**
+     * This function gets a list of contacts out of local storage to analyze and 
+     * will remove a contact from the list.
+     * 
+     * @param {array} contactDetails
+     */
+    function removeContactFromStorage(contact) {
+        
+        app.storage.getData(chkErr(function(data) {
+         
+        var updatedList = [];
+            $(data).each(function(i, item){
+                
+                if(Array.isArray(item)) {
+
+                    if(item[2].value !== contact) {
+    
+                        updatedList.push(item);
+                    }
+                }   
+            });
+
+            status = setContactsInStorage(updatedList);
+            //TO DO create a status broadcaster since this code is repeated.
+            if (status = "success") {
+                alert("Contact list updated");
+            }
+        
         }));
     }
 
@@ -237,13 +274,15 @@
 
     /**
      * This function tests whether an file size is too large.
+     * Note: We have 5 mb to spare with local storage.
+     * Since we are storing upto 100kb  per image that means we can
+     * store less than 50 images in local storage.
      * @param {string} filepath
      * @returns {boolean} 
      */
     function isTooBig(size) {
         return size > 100700
     }
-    
 
     /**
      * TO DO Fix this function to output the list template.git 
