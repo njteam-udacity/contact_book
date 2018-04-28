@@ -1,50 +1,69 @@
-{{#each contacts}}
-<li class="contact" data-name="{{this.[2].value}}" id="id{{@index}}nj">
-    <div class="container">
-        <figure class="avatar col-sm-1">
-            {{#if this.[0].value}}
-                <img src="{{this.[0].value}}" alt="{{page_contacts.details.avatar-desc}}">
-            {{else}}
-                <img src="{{page_contacts.details.profile}}" alt="{{page_contacts.details.avatar-desc}}">
-            {{/if}}
-        </figure>
-        <div class="name col-sm-3">
-            <h3 class="contact-name">
-            {{#if this.[1].value}}
-                <a href="/">{{this.[1].value}}</a>
-            {{else}}
-                <a href="/">{{page_contacts.details.name}}</a>
-            {{/if}}
-            </h3>
-        </div>
-        <div class="details col-sm-5">
-            <div "">
-                <h3 class="contact-phone">
-                    {{#if this.[2].value}}
-                        <a href="tel:{{this.[2].value}}">{{this.[2].value}}</a>
-                    {{else}}
-                        <a href="tel:{{page_contacts.details.phone}}">{{page_contacts.details.phone}}</a>
-                    {{/if}}
+{{#if contacts}}
+    {{#each contacts}}
+    <li class="contact" data-name="{{this.[2].value}}" id="id{{@index}}nj">
+        <div class="container">
+            <figure class="avatar col-sm-1">
+                    <img src="{{this.[0].value}}" alt="{{page_contacts.details.avatar-desc}}">
+            </figure>
+            <div class="name col-sm-3">
+                <h3 class="contact-name">
+                    <a href="/">{{this.[1].value}}</a>
                 </h3>
             </div>
-            <div>
-                <h3 class="contact-email">
-                    {{#if this.[3].value}}
+            <div class="details col-sm-5">
+                <div "">
+                    <h3 class="contact-phone">
+                            <a href="tel:{{this.[2].value}}">{{this.[2].value}}</a>
+                    </h3>
+                </div>
+                <div>
+                    <h3 class="contact-email">
                         <a href="mailto:{{this.[3].value}}">{{this.[3].value}}</a>
-                    {{else}}
-                        <a href="mailto:{{page_contacts.details.email}}">{{page_contacts.details.email}}</a>
-                    {{/if}}
-                </h3>
+                    </h3>
+                </div>
+            </div>
+            <div class="controls  col-sm-2">
+                <button class="control-button edit">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="control-button delete">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </div>
         </div>
-        <div class="controls  col-sm-2">
-            <button class="control-button edit">
-                <i class="fas fa-edit"></i>
-            </button>
-            <button class="control-button delete">
-                <i class="fas fa-trash-alt"></i>
-            </button>
+    </li>
+    {{/each}}
+{{else}}
+  <li class="contact example">
+        <div class="container">
+            <figure class="avatar col-sm-1">
+                    <img src="{{page_contacts.details.avatar}}" alt="{{page_contacts.details.avatar-desc}}">
+            </figure>
+            <div class="name col-sm-3">
+                <h3 class="contact-name">
+                    <a href="/">{{page_contacts.details.name}}</a>
+                </h3>
+            </div>
+            <div class="details col-sm-5">
+                <div "">
+                    <h3 class="contact-phone">
+                        <a href="tel:{{page_contacts.details.phone}}">{{page_contacts.details.phone}}</a>
+                    </h3>
+                </div>
+                <div>
+                    <h3 class="contact-email">
+                        <a href="mailto:{{page_contacts.details.email}}">{{page_contacts.details.email}}</a>
+                    </h3>
+                </div>
+            </div>
+            <div class="controls  col-sm-2">
+                <button class="control-button edit">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="control-button delete">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
         </div>
-    </div>
-</li>
-{{/each}}
+    </li>
+{{/if}}

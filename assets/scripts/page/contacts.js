@@ -7,6 +7,7 @@
 (function(app, chkErr) {
 
     var contacts = [] //stores contact entries.
+    var listTemplate; //stores the list partial
 
 /**
  * Calls the initialize function when jQuery is loaded. 
@@ -22,7 +23,7 @@
         app.utils.getPageResources(chkErr(function(templates, content, config) {
                  
             app.storage.getData(chkErr(function(data) { 
-                
+                listTpl = templates.partials_contact_details;
                 content.contacts = data;
                 app.utils.renderPage(templates.page_contacts, content);
                 addContactPageListeners();
@@ -214,7 +215,8 @@
             contacts.push(contact);    
             status =  setContactsInStorage(contacts);
             if (status = "success") {
-                // app.utils.renderPage(contactTemplates, contactContents)
+
+                // $(".rolodex ul.list").prepend(listTemplate(contact));
                 alert("Contact Saved");
             }
         }));

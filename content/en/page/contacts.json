@@ -22,7 +22,8 @@
             "avatar-desc" : "Avatar",
             "name"        : "Anonymous",
             "email"       : "default@mainemail.com",
-            "phone"       : "(111) 123-4567"
+            "phone"       : "(111) 123-4567",
+            "message"     : "No contacts were added yet!"      
     }
 
 
