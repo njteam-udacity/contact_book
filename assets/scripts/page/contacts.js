@@ -20,9 +20,13 @@
     function initializeApplication() {
 
         app.utils.getPageResources(chkErr(function(templates, content, config) {
+                 
+            app.storage.getData(chkErr(function(data) { 
                 
-            app.utils.renderPage(templates.page_contacts, content);
-            addEventListeners();
+                content.contacts = data;
+                app.utils.renderPage(templates.page_contacts, content);
+                addContactPageListeners();
+            }));
 
         }));
 
@@ -31,7 +35,7 @@
     /**
      * This function adds event listners to the contact page.
      */
-    function addEventListeners(){
+    function addContactPageListeners(){
         
         $(document).on("click", ".add, .edit, .delete", function (e) {
 
@@ -42,6 +46,15 @@
                 $(".contacts form").toggleClass("hidden");
             }
 
+            if ($target.hasClass("delete") || $target.parent("button").hasClass("delete")) {
+                
+                if (confirm("Are you sure that you want to delete this contact?")) {
+                    $target.closest("li").remove();
+                }
+                
+            }
+
+
         });
         //form values and files submit to local webstorage
         $("form").on("submit", function (e){
@@ -49,11 +62,17 @@
 
             var formEntry = $(this).serializeArray();
             
-            aggragateContactStorage(formEntry);
+            aggregateContactStorage(formEntry);
+            debugger;
+            createNewListItem("list", formEntry);
+
+            //reset the form
             this.reset();
             setFormThumbnail("/assets/images/profile.png");
+
         });
 
+        //Input type file event listener
         $("input#avatar").on("change", function (e){
             imageUploadHelper(e.target);
         });
@@ -178,7 +197,7 @@
      * 
      * @param {array} arrOfContacts 
      */
-    function aggragateContactStorage(storedContacts) {
+    function aggregateContactStorage(storedContacts) {
 
         app.storage.getData(chkErr(function(data) {
                 
@@ -224,6 +243,22 @@
     function isTooBig(size) {
         return size > 100700
     }
+    
+
+    /**
+     * TO DO Fix this function to output the list template.git 
+     * This function makes an xml request to get a list template. It take a content object
+     * and outputs a new contact list item.
+     * @param {string} partialName 
+     * @param {function} callback
+     * @returns {string} htmlfragment
+     */
+    function createNewListItem(partialName, content){
+        var listTpl = app.services.getPartial(chkErr(function (partialName, content){
+            
+            return listTpl(content);
+        }));
+    };
 
             // Move contact list into a tabular display table layout
             //TO DO MOVE FORM DATA Properties TO LOCAL STORAGE

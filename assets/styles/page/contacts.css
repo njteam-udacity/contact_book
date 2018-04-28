@@ -147,6 +147,18 @@ html, body {
 .contacts .controls .control-button {
     padding: 25px 25px 25px 0;
 }
+.contacts .controls .control-button.edit,
+.contacts .controls .control-button.delete {
+    background:none;
+    border: none;
+   
+}
+
+.contacts .controls .control-button.edit:focus,
+.contacts .controls .control-button.delete:focus {
+    outline: 0;
+}
+
 .contacts .controls .control-button.edit:hover {
     color: blue
 }

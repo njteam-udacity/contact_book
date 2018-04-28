@@ -98,6 +98,28 @@
             });
 
         },
+        
+        getPartial : function (filename, cb) {
+            app.services.getTexts("/templates/partials", ".hbs", filename, function(error, fileContents) {
+                // if there is an error
+                if (error) {
+                // deal with the error
+                    cb(error);
+                    // and exit.
+                    return;
+                }
+                // textFileContent variable represent a layout 
+                    //or partial "source" in templates.
+                    var textFileContent = fileContents[filename];
+                    var name = app.utils.swapChars(filename, "/", "_");
+                    
+                    // templateFunction is the pre-compiled generated
+                    //template function returned from Handlebars.
+                    var templateFunction = Handlebars.compile(textFileContent); 
+
+                return templateFunction;     
+            })
+        },
 
         getConfig: function (cb) {
             $.getJSON('/config.json', function(config) {
