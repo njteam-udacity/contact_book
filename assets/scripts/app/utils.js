@@ -119,7 +119,7 @@
          * @param {object} content containing content data. 
          */
         renderPage: function (template, content) {
-            app.utils.getPageRootElement().append(template(content));
+            app.utils.getPageRootElement().empty().append(template(content));
             app.utils.refreshHash();
             app.utils.identifyPageRootElement();
         },

@@ -6,10 +6,10 @@
  */
 (function(app, chkErr) {
 
-    var contacts = [] //stores contact entries.
     var listTemplate; //stores the list partial
+    var pageContents;
 
-/**
+/*
  * Calls the initialize function when jQuery is loaded. 
  */    
     $(initializeApplication);
@@ -22,11 +22,15 @@
 
         app.utils.getPageResources(chkErr(function(templates, content, config) {
                  
-            app.storage.getData(chkErr(function(data) { 
-                listTpl = templates.partials_contact_details;
-                content.contacts = data;
+            app.storage.getData(chkErr(function(contacts) {
+
+                listTemplate = templates.partials_contact_list;
+                pageContents = content;
+
                 app.utils.renderPage(templates.page_contacts, content);
+                refreshContactList(contacts);
                 addContactPageListeners();
+
             }));
 
         }));
@@ -35,37 +39,43 @@
 
     /**
      * This function adds event listners to the contact page.
+     * TO Do use target attr value so we can use a switch statement
      */
     function addContactPageListeners(){
         
-        $(document).on("click", ".add, .edit, .delete", function (e) {
+        $(document).on("click", "[action]", function (e) {
 
             var $target = $(e.target);
+            var contactId = e.target.value;
+
+            switch($target.attr('action')) {
+
+                case 'add':
+                    $target.toggleClass("active");
+                    $(".contacts form").toggleClass("hidden");
+                break;
+
+                case 'delete':
+                    if (confirm("Are you sure that you want to delete this contact?")) {
+                        removeContactFromStorage(contactId);
+                    }
+                break;
+
+                case 'edit':
+
+                break;
+
+            }
             
-            if ($target.hasClass("add") || $target.parent("button").hasClass("add")) {
-                $target.toggleClass("active");
-                $(".contacts form").toggleClass("hidden");
-            }
-
-            if ($target.hasClass("delete") || $target.parent("button").hasClass("delete")) {
-                
-                if (confirm("Are you sure that you want to delete this contact?")) {
-                    removeContactFromStorage($target.closest("li").data("name"));
-                    $target.closest("li").remove();
-
-                }
-                
-            }
-
-
         });
         //form values and files submit to local webstorage
         $("form").on("submit", function (e){
             e.preventDefault();
 
             var formEntry = $(this).serializeArray();
-            
-            addContactToStorage(formEntry);
+            var contact = createContact(formEntry);
+
+            addContactToStorage(contact);
             
             // createNewListItem("list", formEntry);
 
@@ -184,72 +194,102 @@
     
     /**
      * This function stores a list of contacts into local storage
-     * @param {array} arrOfContacts 
+     * @param {array} contactList 
      */
     function setContactsInStorage (contactList){
         app.storage.setData(contactList, chkErr(function () {
-
             //To do make an overlay to display this message. 
-            return "success";
-
+            refreshContactList(contactList);
         }));
     }
+
+    /**
+     * Function creates an object containing the data entry submitted from the form.
+     * @param {{name: string; value: string}[]} formEntry
+     * @returns {object}
+     */
+    function createContact(formEntry) {
+
+        var contact = {};
+
+        for (var i = 0, c = formEntry.length; i < c; ++i) {
+            var formField = formEntry[i];
+            contact[formField.name] = formField.value;
+        }
+
+        // add a unique ID to the contact
+        contact.id = uniqueId();
+        
+        return contact;
+        
+    }
+    
+     /**
+      * Generates a new contact id to identify each contact.
+      * @returns {number} //id
+      */
+    function uniqueId() {
+        return ((new Date).getTime() * Math.round(Math.random() * 1000)).toString(16);
+    }
+
+
     /**
      * This function gets a list of contacts out of local storage to analyze and 
      * aggregates the contact list when a new entry is added.
      * 
-     * @param {array} contact details 
+     * @param {{name: string; email: string; phone: string; avatarSource: string}} contact details 
      */
-    function addContactToStorage(contact) {
-        var status = "";
+    function addContactToStorage(contact) {        
+        app.storage.getData(chkErr(function(contacts) {
+            contacts.unshift(contact);
+            setContactsInStorage(contacts);            
+        }));
+    }
+    
+    
+    /**
+     * Function appends a contact list to the contact list ul
+     */
+    function refreshContactList (contacts) {
+        pageContents.contacts = contacts;
+        $(".rolodex").html(listTemplate(pageContents));
+    }
+    
+    //Deletes the contact list.
+    function clearStoredContacts() {
         app.storage.getData(chkErr(function(data) {
                 
             if (data.length > 0) {
 
                 for (var i = 0; i < data.length; i++ ) {
 
-                    contacts.push(data[i]);
+                    contacts.shift(data[i]);
                 }   
 
             }
-            contacts.push(contact);    
-            status =  setContactsInStorage(contacts);
-            if (status = "success") {
-
-                // $(".rolodex ul.list").prepend(listTemplate(contact));
-                alert("Contact Saved");
-            }
-        }));
+        })); 
     }
-    
+
+
     /**
      * This function gets a list of contacts out of local storage to analyze and 
      * will remove a contact from the list.
      * 
-     * @param {array} contactDetails
+     * @param {string} contactId
      */
-    function removeContactFromStorage(contact) {
+    function removeContactFromStorage(contactId) {
         
-        app.storage.getData(chkErr(function(data) {
-         
-        var updatedList = [];
-            $(data).each(function(i, item){
-                
-                if(Array.isArray(item)) {
+        app.storage.getData(chkErr(function(contacts) {
 
-                    if(item[2].value !== contact) {
-    
-                        updatedList.push(item);
-                    }
-                }   
+            $(contacts).each(function(i, contact) {
+                if (contact.id === contactId) {
+                    contacts.splice(i, 1);
+                    return false;
+                }  
             });
 
-            status = setContactsInStorage(updatedList);
-            //TO DO create a status broadcaster since this code is repeated.
-            if (status = "success") {
-                alert("Contact list updated");
-            }
-        
+            setContactsInStorage(contacts);
+            
         }));
     }
 
@@ -296,7 +336,7 @@
      */
     function createNewListItem(partialName, content){
         var listTpl = app.services.getPartial(chkErr(function (partialName, content){
-            
+
             return listTpl(content);
         }));
     };

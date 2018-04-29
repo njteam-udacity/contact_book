@@ -1,32 +1,32 @@
 {{#if contacts}}
-    {{#each contacts}}
-    <li class="contact" data-name="{{this.[2].value}}" id="id{{@index}}nj">
+    {{#each contacts as |contact key|}} 
+    <li class="contact">
         <div class="container">
             <figure class="avatar col-sm-1">
-                    <img src="{{this.[0].value}}" alt="{{page_contacts.details.avatar-desc}}">
+                <img src="{{contact.avatarSource}}" alt="{{contact.name}}">
             </figure>
             <div class="name col-sm-3">
                 <h3 class="contact-name">
-                    <a href="/">{{this.[1].value}}</a>
+                    <a href="/">{{contact.name}}</a>
                 </h3>
             </div>
             <div class="details col-sm-5">
                 <div "">
                     <h3 class="contact-phone">
-                            <a href="tel:{{this.[2].value}}">{{this.[2].value}}</a>
+                            <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
                     </h3>
                 </div>
                 <div>
                     <h3 class="contact-email">
-                        <a href="mailto:{{this.[3].value}}">{{this.[3].value}}</a>
+                        <a href="mailto:{{contact.email}}">{{contact.email}}</a>
                     </h3>
                 </div>
             </div>
             <div class="controls  col-sm-2">
-                <button class="control-button edit">
+                <button class="control-button edit" action="edit" value="{{contact.id}}">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button class="control-button delete">
+                <button class="control-button delete" action="delete" value="{{contact.id}}">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </div>
