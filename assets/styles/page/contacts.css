@@ -61,20 +61,26 @@ html, body {
     width: 100%;
 }
 
-.contacts .form-row {
+.contacts .contact .row {
     display: table-row;
-}
-
-.contacts .form-cell {
-    width: 20%;
-    padding-right: 10px;
-    display: table-cell;
-    vertical-align: middle;   
 }
 
 .contacts .form-cell:first-child,
 .contacts .form-cell:last-child{
-    width: 15%;
+    max-width: 150px; 
+}
+
+
+.contacts .form-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    width: 22%;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+
 }
 
 .contacts form [type="file"] {
@@ -88,10 +94,6 @@ html, body {
 /* Main section contact list rows */
 .contacts ul.header li
 .contacts ul.list li {
-    display: inline-block;
-}
-
-.contacts ul.list .container div {
     display: inline-block;
 }
 
@@ -135,19 +137,35 @@ html, body {
     padding-left: 10px;
 }
 
+.contacts .form-cell {
+    text-align: left;
+}
+
+.contacts .form-cell .name,
+.contacts .form-cell .details {
+    max-width: 375px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+
+.contacts .form-cell a {
+    font-weight: normal;
+    font-size: 20px;
+}
+
 .contacts .no-contact h3 {
     text-align: center;
 }
 
 
-.contacts .contact a {
-    font-weight: normal;
-}
 
-.contacts .avatar {
+
+
+/* .contacts .avatar {
     margin-right: 15px;
     padding: 0;
-}
+} */
 
 .contacts .avatar img {
     height: 100px;
