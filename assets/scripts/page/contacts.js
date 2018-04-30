@@ -6,6 +6,8 @@
  */
 (function(app, chkErr) {
 
+    var NO_IMAGE = "/assets/images/blank.gif";
+
     var listTemplate; //stores the list partial
     var pageContents;
 
@@ -87,7 +89,11 @@
 
         //Input type file event listener
         $("input#avatar").on("change", function (e){
-            imageUploadHelper(e.target);
+            debugger;
+            if ($(e.target).val() === "" && $("#thumbnail").attr("src") === "/assets/images/profile.png") {
+                
+                imageUploadHelper(e.target);
+            }
         });
         
         // $(window)
@@ -154,7 +160,7 @@
      * */ 
     function imageUploadHelper(inputElem) {
        
-
+debugger;
         if (!inputElem.value) {
             // set the placeholder image back
             setFormThumbnail("/assets/images/profile.png");
@@ -252,7 +258,14 @@
      */
     function refreshContactList (contacts) {
         pageContents.contacts = contacts;
-        $(".rolodex").html(listTemplate(pageContents));
+
+        if (contacts.length === 0) {
+            $(".rolodex").addClass("block");
+        }
+        else {
+            $(".rolodex").removeClass("block")
+                        .html(listTemplate(pageContents));
+        }
     }
     
     //Deletes the contact list.

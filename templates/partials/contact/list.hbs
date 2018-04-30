@@ -1,3 +1,11 @@
-<ul class="list">
-    {{> partials_contact_details}}
-</ul>
+{{#if contacts}}
+    <ul class="list">
+        {{#each contacts as |contact|}}  {{!-- {{contact will represent the current item in the array}} --}}
+            {{> partials_contact_details contact shared_global=../shared_global}}
+        {{/each}}
+    </ul>
+{{else}}
+    <section class="no-contact">
+        <h2>{{page_contacts.labels.no-contact}}</h2>
+    </section>
+{{/if}}

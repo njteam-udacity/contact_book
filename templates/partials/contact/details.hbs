@@ -1,69 +1,33 @@
-{{#if contacts}}
-    {{#each contacts as |contact key|}} 
-    <li class="contact">
-        <div class="container">
-            <figure class="avatar col-sm-1">
-                <img src="{{contact.avatarSource}}" alt="{{contact.name}}">
-            </figure>
-            <div class="name col-sm-3">
-                <h3 class="contact-name">
-                    <a href="/">{{contact.name}}</a>
+{{!-- this partial expects a contact object as its context --}}
+<li class="contact">
+    <div class="container">
+        <figure class="avatar col-sm-1">
+            {{> partials_contact_avatar src=avatarSource alt=name }}
+        </figure>
+        <div class="name col-sm-3">
+            <h3 class="contact-name">
+                <a href="/">{{name}}</a>
+            </h3>
+        </div>
+        <div class="details col-sm-5">
+            <div "">
+                <h3 class="contact-phone">
+                    <a href="tel:{{phone}}">{{phone}}</a>
                 </h3>
             </div>
-            <div class="details col-sm-5">
-                <div "">
-                    <h3 class="contact-phone">
-                            <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
-                    </h3>
-                </div>
-                <div>
-                    <h3 class="contact-email">
-                        <a href="mailto:{{contact.email}}">{{contact.email}}</a>
-                    </h3>
-                </div>
-            </div>
-            <div class="controls  col-sm-2">
-                <button class="control-button edit" action="edit" value="{{contact.id}}">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="control-button delete" action="delete" value="{{contact.id}}">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
-        </div>
-    </li>
-    {{/each}}
-{{else}}
-  <li class="contact example">
-        <div class="container">
-            <figure class="avatar col-sm-1">
-                    <img src="{{page_contacts.details.avatar}}" alt="{{page_contacts.details.avatar-desc}}">
-            </figure>
-            <div class="name col-sm-3">
-                <h3 class="contact-name">
-                    <a href="/">{{page_contacts.details.name}}</a>
+            <div>
+                <h3 class="contact-email">
+                    <a href="mailto:{{email}}">{{email}}</a>
                 </h3>
             </div>
-            <div class="details col-sm-5">
-                <div "">
-                    <h3 class="contact-phone">
-                        <a href="tel:{{page_contacts.details.phone}}">{{page_contacts.details.phone}}</a>
-                    </h3>
-                </div>
-                <div>
-                    <h3 class="contact-email">
-                        <a href="mailto:{{page_contacts.details.email}}">{{page_contacts.details.email}}</a>
-                    </h3>
-                </div>
-            </div>
-            <div class="controls  col-sm-2">
-                <button class="control-button edit">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="control-button delete">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
         </div>
-    </li>
-{{/if}}
+        <div class="controls  col-sm-2">
+            <button class="control-button edit" action="edit" value="{{id}}">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="control-button delete" action="delete" value="{{id}}">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+</li>

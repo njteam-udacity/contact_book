@@ -28,6 +28,10 @@ html, body {
     margin-top: 120px;
 }
 
+.contacts [action] .fas{
+    pointer-events: none;
+}
+
 /*Main section list header columns */
 .contacts ul.header .container .col{
     margin-left:5px;
@@ -97,14 +101,24 @@ html, body {
     padding: 5px;
 }
 
+.contacts .no-avatar {
+
+    background-image: url("/assets/images/profile.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 
 /* Main section  contact-items container */
 .contacts .rolodex {
     overflow-x: hidden;
     text-align: center;
     display: inline-block;
-
 }
+
+.contacts .rolodex.block {
+    display: block;
+} 
 
 .contacts ul.list {
     overflow-y: scroll;
