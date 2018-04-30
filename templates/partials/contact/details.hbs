@@ -1,0 +1,33 @@
+{{!-- this partial expects a contact object as its context --}}
+<li class="contact">
+    <div class="container">
+        <figure class="avatar col-sm-1">
+            {{> partials_contact_avatar src=avatarSource alt=name }}
+        </figure>
+        <div class="name col-sm-3">
+            <h3 class="contact-name">
+                <a href="/">{{name}}</a>
+            </h3>
+        </div>
+        <div class="details col-sm-5">
+            <div "">
+                <h3 class="contact-phone">
+                    <a href="tel:{{phone}}">{{phone}}</a>
+                </h3>
+            </div>
+            <div>
+                <h3 class="contact-email">
+                    <a href="mailto:{{email}}">{{email}}</a>
+                </h3>
+            </div>
+        </div>
+        <div class="controls  col-sm-2">
+            <button class="control-button edit" action="edit" value="{{id}}">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="control-button delete" action="delete" value="{{id}}">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+</li>

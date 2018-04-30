@@ -1,8 +1,8 @@
 /**
  * This IIFE function (module pattern) privately contains our page specific source code.
  * Short reference on module patterns: http://adripofjavascript.com/blog/drips/understanding-the-module-pattern-in-javascript.html.
- * @param{app} is the global object shared across the application, passed to our function as an argument.
- * @param{chkErr} is our error handling function that is called before async requests. 
+ * @param {object} is the global object shared across the application, passed to our function as an argument.
+ * @param {Function} is our error handling function that is called before async requests. 
  */
 (function(app, chkErr) {
    

@@ -9,6 +9,8 @@
     },
     "about" : {
         "header": "Meet The Team"
+    },
+    "misc" : {
+        "blank-image": "/assets/images/blank.gif"
     }
-    
 }

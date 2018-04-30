@@ -101,8 +101,8 @@ A contact book application utilizing HTML, CSS, Bootstrap, and JavaScript.
 ├── node_modules/
 |
 ├── templates/
-|    ├── partials/ (shared templates)
-|    └── page/ (page specific templates)
+|    ├── page/ (page specific templates) 
+|    └── partials/ (shared templates)
 |
 ├── .gitignore
 ├── config.json (template and content file map)
