@@ -87,10 +87,16 @@
 
         });
 
-        //Input type file event listener
+        //Input type file event listener "change". After selecting the browse button to
+        //upload a file or cancel an upload. This function inspects if an empty value
+        //was submitted and if an there is an existing image that is different from the default
+        //profile image (/assets/images/profile.png).
+        //If those conditions are meet then a  thumbnail of the image will render in the thumbnail container.
+        //TO DO use background image see rolodex list. 
         $("input#avatar").on("change", function (e){
-            debugger;
-            if ($(e.target).val() === "" && $("#thumbnail").attr("src") === "/assets/images/profile.png") {
+        
+            //function adds constraint to for image
+            if ($(e.target).val() !== "" &&  $("#thumbnail").attr("src") === "/assets/images/profile.png") {
                 
                 imageUploadHelper(e.target);
             }
@@ -160,7 +166,6 @@
      * */ 
     function imageUploadHelper(inputElem) {
        
-debugger;
         if (!inputElem.value) {
             // set the placeholder image back
             setFormThumbnail("/assets/images/profile.png");
@@ -263,9 +268,9 @@ debugger;
             $(".rolodex").addClass("block");
         }
         else {
-            $(".rolodex").removeClass("block")
-                        .html(listTemplate(pageContents));
+            $(".rolodex").removeClass("block");
         }
+        $(".rolodex").html(listTemplate(pageContents));
     }
     
     //Deletes the contact list.

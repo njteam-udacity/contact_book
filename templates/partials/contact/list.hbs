@@ -1,4 +1,5 @@
 {{#if contacts}}
+  <h1>contacts</h1>
     <ul class="list">
         {{#each contacts as |contact|}}  {{!-- {{contact will represent the current item in the array}} --}}
             {{> partials_contact_details contact shared_global=../shared_global}}
@@ -6,6 +7,8 @@
     </ul>
 {{else}}
     <section class="no-contact">
-        <h2>{{page_contacts.labels.no-contact}}</h2>
+          <div class="container">
+            <h3>{{page_contacts.labels.no-contact}}</h3>
+          </div>
     </section>
 {{/if}}

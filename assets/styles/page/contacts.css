@@ -108,7 +108,6 @@ html, body {
     background-size: contain;
 }
 
-
 /* Main section  contact-items container */
 .contacts .rolodex {
     overflow-x: hidden;
@@ -118,7 +117,9 @@ html, body {
 
 .contacts .rolodex.block {
     display: block;
+    text-align: right;
 } 
+
 
 .contacts ul.list {
     overflow-y: scroll;
@@ -126,6 +127,18 @@ html, body {
     margin-right: -22px;
     height: 980px;
 }
+
+.contacts .no-contact {
+    display: inline-block;
+    height: 900px;
+    background: aliceblue;
+    padding-left: 10px;
+}
+
+.contacts .no-contact h3 {
+    text-align: center;
+}
+
 
 .contacts .contact a {
     font-weight: normal;
@@ -249,12 +262,13 @@ html, body {
        text-align: center;
     }
      
-    .contacts .contact {
+    .contacts .contact,
+    .contacts .no-contact {
         width: 100%;
         text-align: center;
         display: block;
     }
-
+    
     .contacts ul.list {
         margin-right:0;
     }
