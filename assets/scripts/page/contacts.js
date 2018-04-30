@@ -94,9 +94,9 @@
         //If those conditions are meet then a  thumbnail of the image will render in the thumbnail container.
         //TO DO use background image see rolodex list. 
         $("input#avatar").on("change", function (e){
-        
+            
             //function adds constraint to for image
-            if ($(e.target).val() !== "" &&  $("#thumbnail").attr("src") === "/assets/images/profile.png") {
+            if ($(e.target).val() !== "" &&  $("#thumbnail").attr("src") !== $(e.target).val()) {
                 
                 imageUploadHelper(e.target);
             }
