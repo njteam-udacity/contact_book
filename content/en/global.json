@@ -7,8 +7,13 @@
     "footer" : {
         "message": "GwG Udacity | NJ Group &copy; 2018" 
     },
+<<<<<<< Updated upstream:content/en/global.json
     "about" : {
         "header": "Meet The Team"
+=======
+    "misc" : {
+        "blank-image": "/assets/images/blank.gif"
+>>>>>>> Stashed changes:content/en/shared/global.json
     }
     
 }
