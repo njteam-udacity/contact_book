@@ -16,5 +16,5 @@
         "partials/contact/aside",
         "partials/contact/details"
     ],
-    "content": ["shared/global", "page/index", "page/contacts", "page/modal"]
+    "content": ["shared/global", "page/index", "page/contacts", "page/modal", "shared/about"]
 }
