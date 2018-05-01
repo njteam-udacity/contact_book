@@ -1,0 +1,9 @@
+{
+   "name"   : "Jon Maldia",
+   "number" : "555-333-4343",
+   "email"  : "you@email.com",
+   "save"   : "Save",
+   "delete" : "Delete",
+    "img"   : "https://pbs.twimg.com/profile_images/941845342294769665/KMdu0q3e_400x400.jpg",
+    "desc"  : "profile picture"
+}

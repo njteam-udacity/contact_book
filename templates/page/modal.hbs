@@ -1,0 +1,30 @@
+<div class="modal-wrapper">
+			<div id="profile-modal" class="modal-wrapper">
+				<div class="modal-header">
+					<div class="modal-name">
+					  {{page_modal.name}}	 <!-- This should be dynamic -->
+					</div>
+					<span class="close">×</span>
+				</div>
+				<div class="modal-info">
+					<div class="phone">
+						<i class="fas fa-phone-volume"></i>
+						<p class="modal-phone">{{page_modal.number}}</p> <!-- This should be dynamic -->
+						<!-- edit -->
+					</div>
+					<div class="email">
+						<i class="fas fa-envelope-square"></i>
+						<p class="modal-email">{{page_modal.email}}</p> <!-- This should be dynamic -->
+						<!-- edit -->
+					</div>
+				</div>
+				<div class="buttons">
+					<button class="save">{{page_modal.save}}</button>
+					<button class="delete">{{page_modal.delete}}</button>
+				</div>
+
+				<div class="modal-img">
+					<img src="{{page_modal.img}}" alt="{{page_modal.img-desc}}"> <!-- This should be dynamic -->
+				</div>
+			</div>
+		</div>

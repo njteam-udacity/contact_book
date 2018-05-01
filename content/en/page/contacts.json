@@ -1,3 +1,22 @@
 {
-   "avatar" : "assets/images/myexample.png" 
+   "form": {
+        "profile"      : "/assets/images/profile.png",
+        "profile-desc" : "Profile img",
+        "input-browse" : "Browse",
+        "btn-submit"   : "Submit",
+        "name-ph"      : "Enter name", 
+        "email-ph"     : "Enter email",
+        "phone-ph"     : "Enter phone#"
+    },
+        
+   "labels": {
+        "title"     : "Avatar",
+        "name"      : "Full name",
+        "email"     : "Email",
+        "phone"     : "Phone",
+        "controls"  : "Controls",
+        "no-contact": "No contacts were added yet!",
+        "header"    : "Contacts list"  
+    }
+
 }

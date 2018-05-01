@@ -5,11 +5,11 @@
  * @param {Function} is our error handling function that is called before async requests. 
  */
 (function(app, chkErr) {
-     
+   
     /**
     * Calls the initialize function when jQuery is loaded. 
     */    
-    $(initializeApplication);
+   $(initializeApplication);
 
    /**  
     * This function gathers VIEW dependencies for this page(templates, contents)
@@ -18,27 +18,28 @@
     function initializeApplication() {
 
         app.utils.getPageResources(chkErr(function(templates, content, config) {
-                
-            app.utils.renderPage(templates.page_index, content);
-            
+
+            app.utils.renderPage(templates.page_modal, content);            
+        
         }));
 
     }
 
-    
-    function addEventListeners(){
-        //Todo add event listeners
-        // $(document)
-        //     // does something when ".selector" is clicked.
-        //     .on('click', '.selector', function() {
+    // Get the modal
+    var modal = document.getElementById('profile-modal');
 
-        //     });
-    
-        // $(window)
-        //     // does something when ".selector" is clicked.
-        //     .on('click', '.selector', function() {
+    // Get the element that closes the modal
+    var close = document.getElementsByClassName('close');
 
-        //     });
+    // When the user clicks on (x), close the modal
+    close.onclick = function() {
+        modal.style.display = "none";
     }
 
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 })(window.app, app.utils.checkForErrors);

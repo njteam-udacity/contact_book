@@ -11,41 +11,28 @@ html, body {
   text-align: center;
 
 }
+/* Main section  */
+.contacts .left-partition {
+    width: 75%;
+    text-align:right;
+    display: inline-block;
+}
 .contacts ul{
     list-style-type: none;
     padding-left: 0;
     display:inline-block;
         
 }
-.contacts ul.list {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin-right: -20px;
-    height: 655px;
-}
 
-.contacts ul.header.labels {
+.contacts ul.labels {
     margin-top: 120px;
 }
 
-/* Contact list item rows */
-.contacts ul.header li
-.contacts ul.list li {
-    display: inline-block;
+.contacts [action] .fas{
+    pointer-events: none;
 }
 
-.contacts ul.list .container div {
-    display: inline-block;
-}
-
-.contacts .contact {
-    text-align: left;
-    display: inline-block;
-    background-color: aliceblue;
-    padding: 5px;
-}
-
-/* list header columns */
+/*Main section list header columns */
 .contacts ul.header .container .col{
     margin-left:5px;
 }
@@ -58,11 +45,44 @@ html, body {
     margin-left:0;
 }
 .contacts ul.header .container .col:last-child {
-    text-align: right;
+    margin-left: 40px;
+}
+
+/*Main section form */
+
+.contacts form.hidden {   
+    visibility: hidden;
+    height: 0px;
+}
+
+.contacts .form-table{
+
+    display: table;
+    width: 100%;
+}
+
+.contacts .contact .row {
+    display: table-row;
+}
+
+.contacts .form-cell:first-child,
+.contacts .form-cell:last-child{
+    max-width: 150px; 
 }
 
 
-/*add contact form */
+.contacts .form-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    width: 22%;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+
+}
+
 .contacts form [type="file"] {
     display: none; 
 }
@@ -70,14 +90,82 @@ html, body {
     background-color: rgba(240, 248, 255, 0.4);
 }
 
-.contacts .contact a {
-    font-weight: normal;
+
+/* Main section contact list rows */
+.contacts ul.header li
+.contacts ul.list li {
+    display: inline-block;
 }
 
-.contacts .avatar {
+.contacts .contact {
+    text-align: left;
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+.contacts .no-avatar {
+
+    background-image: url("/assets/images/profile.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Main section  contact-items container */
+.contacts .rolodex {
+    overflow-x: hidden;
+    text-align: center;
+    display: inline-block;
+}
+
+.contacts .rolodex.block {
+    display: block;
+    text-align: right;
+} 
+
+
+.contacts ul.list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-right: -22px;
+    height: 980px;
+}
+
+.contacts .no-contact {
+    display: inline-block;
+    height: 900px;
+    background: aliceblue;
+    padding-left: 10px;
+}
+
+.contacts .form-cell {
+    text-align: left;
+}
+
+.contacts .form-cell .name,
+.contacts .form-cell .details {
+    max-width: 375px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+
+.contacts .form-cell a {
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.contacts .no-contact h3 {
+    text-align: center;
+}
+
+
+
+
+
+/* .contacts .avatar {
     margin-right: 15px;
     padding: 0;
-}
+} */
 
 .contacts .avatar img {
     height: 100px;
@@ -95,15 +183,6 @@ html, body {
 }
 
 
-.contacts .contact-name {
-    overflow: hidden;
-}
-
-.contacts .contact-phone,
-.contacts .contact-email {
-    margin-right: 25px;
-}
-
 /* Group container for the edit and delete buttons */
 .contacts .controls {
     font-size: 25px;
@@ -111,20 +190,87 @@ html, body {
 
 /* Control buttons */
 .contacts .controls .control-button {
-    padding:25px
+    padding: 25px 25px 25px 0;
 }
-.contacts .controls .control-button.add {
-    color: green;
+.contacts .controls .control-button.edit,
+.contacts .controls .control-button.delete {
+    background:none;
+    border: none;
+   
 }
-.contacts .controls .control-button.add:hover {
-    color: lightgreen;
+
+.contacts .controls .control-button.edit:focus,
+.contacts .controls .control-button.delete:focus {
+    outline: 0;
 }
+
 .contacts .controls .control-button.edit:hover {
     color: blue
 }
-.contacts .controls .control-button.trash:hover {
+.contacts .controls .control-button.delete:hover {
     color: red;
 }
+/* footer of contacts page */
+.contacts + footer {
+    position: static
+}
+
+/* Aside section */
+
+.contacts .right-partition {
+    width: 25%;
+    float: right;
+    height: 1200px;
+}
+.contacts aside {
+    height: 75%;
+    margin: 25% 0;
+}
+
+/* Aside section button */
+.contacts .control-btn.add {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    background-color: rgb(144, 238, 144);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    transition: background-color 0.3s;
+    padding: 25px;
+    border: 1px solid rgb(144, 238, 144);
+}
+
+.contacts .control-btn.add:hover {
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+.contacts .control-btn.add:focus,
+.contacts .control-btn.add.active:focus {
+    outline: none;
+}
+.contacts .control-btn.add:focus {
+    animation: revertColor 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.contacts .control-btn.add.active:focus {
+    background-color: yellowgreen;
+    animation: changeColor 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.contacts .control-btn.add i {
+    font-size: 50px;
+
+}
+
+@keyframes changeColor {
+    0%   {background-color: rgba(0, 128, 0, 0.5);}
+    100%   {background-color: yellowgreen;}
+}
+
+@keyframes revertColor {
+    100%   {background-color: yellowgreen;}
+    0%   {background-color: rgba(0, 128, 0, 0.5);}
+}
+
 
 /* responsive */
 
@@ -133,15 +279,16 @@ html, body {
        padding: 0px;
        text-align: center;
     }
-
-    .contacts ul.header{
-        display: none;
-    }
-
-    .contacts .contact {
+     
+    .contacts .contact,
+    .contacts .no-contact {
         width: 100%;
         text-align: center;
         display: block;
+    }
+    
+    .contacts ul.list {
+        margin-right:0;
     }
 
     .contacts ul.list,
@@ -179,14 +326,77 @@ html, body {
         position: initial;
     }
     
+    .contacts .right-partition,
+    .contacts aside {
+        height: 220px;
+    }
+
+    .contacts .control-btn.add {
+        top: 9%;
+    }
+
 }
 
-@media only screen and (max-width:  400px) {
+@media only screen and (max-width: 800px) {
+    
+    .contacts ul {
+        width: 100%;
+    } 
+    
+    .contacts ul.labels{
+        margin-top: 350px;
+    }
+    
     .contacts .contact {
         font-size: 15px;
+    }
+
+    
+    .contacts .left-partition{
+        display: block;
+        width: 100%;
+    } 
+    
+
+    .contacts .rolodex {
+        width: 100%;
+    }
+
+    .contacts .right-partition,
+    .contacts aside {
+        height: 200px;
+        width: 100%;
+        
+    }
+    .contacts .right-partition {
+        position: absolute;
+        top: 0px;
+    }
+    
+    .contacts .control-btn.add {
+        background-color: rgba(144, 238, 144, 0.5);
+        width: 100%;
+        border-radius: 0;
+        position: absolute;
+        top: 150px;
+    }
+    .contacts .control-btn i {
+        padding: 50px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .contacts div.form-table.labels {
+        display: none;
+        border: 1px solid red;
+    }
+    .contacts .form-cell {
+        display: table-row;
     }
     .contacts .avatar img {
         height: 100%;
         width: 100%;
     }
+
 }

@@ -19,30 +19,35 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 
     -  *Tip*: If you are creating a partial (a component of a page) it should be  saved under the folder "template/partial" with the appropriate name.
 
-2. Replace any static content with handlebars tags.
+2. Save content as a json file under the content/en/page folder:
+   - Example file path: **content/en/greetings.json**
+   - Example JSON file:
+      ```
+        {
+          "salutation": "Hello",
+          "name": "Team",
+          "message": "Tomorrow we are invited out for tacos."
+          "img-url": "http://greeting.io"
+          "img-text": "Some description"
+        }
+      ```
+   -  *Tip*: If your content is for partial will shared globally in the application it should be saved in the shared folder.
+
+3. Replace any static content with handlebars tags.
     - Example static content:
       ```
       <h1>Hello Team</h1>
       <p>Tomorrow we are invited out for tacos.</p>
       ```  
-    - Example using handlebars tags for interpolation:
+    - Example using handlebars tags for interpolation. The proper syntax is to use **dot notation** to obtain key values.
+
       ```
-      <h1>{{greeting}} {{name}}</h1>
-      <p>{{message}}</p>
+      <h1>{{page_greeting.salutation}} {{page_greeting.name}}</h1>
+      <p>{{page_greeting.message}}</p>
       ```
     - *Tip*: Use handlebars escape tags {{{ escape tag }}} (three pairs of curly braces) if you intend for the output to be interpreted as html.
-
-3. Save content as a json file under the content/en/page folder:
-   - Example file path: **content/en/greetings.json**
-   - Example JSON file:
-      ```
-        {
-          "greeting": "Hello",
-          "name": "Team",
-          "message": "Tomorrow we are invited out for tacos."
-        }
-      ```
-   -  *Tip*: If your content is for a partial it should be saved in global.json.
+    - *Tip*: For html attribute values, wrap handlebars tags in quotes "{{attribute}}" like so:
+       - `<img href="{{page_greeting.img-url}}" alt="{{page_greeting.alt-text}}">`
 
 4. Register your template or partial and register your content.
     
@@ -61,8 +66,49 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
         "content" : ["global", "page/index", "page/greeting"]
         }
         ```
-5. If you want to insert partials in your template, the next step would be to place the appropriate partial tags in your template.
-    - Example greeting.hbs template tagged with header and footer partials.
+        
+5. **If** and only if you are creating a **new page**, then we need to create or         modify the script file for that page because the template will be loaded into        the page **body** dynamically with jQuery.
+    - First we need to **wrap** an IIFE around any *page specific* code that you may have and then add the module initializer code as such:
+         ```
+         (function (param, param2) { // immediately invoked function expression.
+            
+            "some initialize page script code blocks"
+
+            'some greeting page script code blocks'
+
+         })(arg1,arg2)}
+         ```
+
+      - *Example: greetings.js*
+      ```
+          (function(app, chkErr) { // our required IIFE wrapper
+
+              //calls the initialize function when jQuery is loaded.
+              $(initializeApplication);
+
+              //This function gathers page VIEW dependencies (templates, contents)
+              //then renders the page.
+              app.utils.getPageResources(chkErr(function(templates, content, config) {      
+            
+              app.utils.renderPage(/*app.*/templates.page_index, /*app.*/content);
+              
+              }));
+            
+              //some page specific greeting script code block
+                var teamGreeting = {
+                      greet: function () {
+                            alert("Hello, Team!");
+                          }
+                };
+              $.ready(teamGreeting.greet()); //alerts 'Hello, Team!' when DOM is loaded.
+
+          })(window.app, app.utils.checkForErrors);
+
+      ```
+    - *Tip*: If your page does not have any "page specific scripts" right away, that is fine too. Still add the IIFE and the initializer code base to the script file for that page and save it. When/if you add code specific to the page like page event listeners or other functions, make sure that those functions are nested inside the IIFE as shown above.
+
+6. If you want to insert partials in a page template, the next step would be to place the appropriate partial tags in your template.
+    - Example greeting.hbs template tagged with header and footer partials. Partial syntax: {{> foldername/file }}
       ```
         {{> partials/header}}
 
@@ -73,13 +119,13 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
 
       ```
 
-6. Next, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
+7. Next, save your css file under the styles folder and your script file under the scripts folder respectively with a name appropriate to the template that you are working on.
     - Example: **assets/styles/page/greetings.css**
     - Example: **assets/scripts/page/greetings.js**
     - *Tip*: If your style or script is for a partial it should be saved in a file under styles/app/ or scripts/app.
 
-7. Lastly, be sure to include **all** dependencies (stylesheet links & script tags) into the head of the of the corresponding html page where your template will be rendered.
-    - High level example: Html of the "greeting" page.
+8. Lastly, be sure to include **all** dependencies (stylesheet links & script tags) into the head of the corresponding html page where your template will be rendered.
+    - High level example of the "greeting" page. Be certain that your script file containing the page initializer scripts is added to the head element **last** after jquery, bootstrap, services and etc. In this case greetings.js is loaded last as shown below:
       ```
       <!doctype html>
           <html>
@@ -99,11 +145,11 @@ This DRY approach to creating html pages will help minimize the number of DOM ap
           </html>
       ```
 
-8. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
-"{{#each}}" and {{#if}} that can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
+9. That is pretty much our general work flow for templating. There are other helpers that we can use with handlebars such as 
+"{{#each}}" and {{#if}} which can be very helpful in creating templates with a DRY approach. Checkout the reference ["handlebarsjs builtin_helpers"](#resources) above for details.
 
 ## How it all works!
-We created an html template of an html component or page and stored it in a separate file under the templates folder. (e.g: templates/greeting.hbs)
+We created an html template of an html component or html page and stored it in a separate file under the templates folder. (e.g: templates/greeting.hbs)
 
 ```greeting.hbs source
    <!-- Pre-compiled templates are often referred to as "source" in handlebars.js -->
@@ -115,13 +161,13 @@ We created an html template of an html component or page and stored it in a sepa
 ```
 
 - Notice that our demo greeting.hbs template does not have an `<html>` or `<body>` parent element.
-  This technique is intended so that we can dynamically append templates to the DOM during run-time.
+  This technique is intended so that we can dynamically append templates to the DOM during run-time with jQuery.
   This demo template itself, is just a pair of header tags with a greeting inside followed by a pair of paragraph tags with a message inside.
   
-- Also, notice the two pairs of curly braces inside the html tags. They are handlebars tags used to signify a dynamic point in the template where Handlebars will insert some content.
+- Also, notice the two pairs of curly braces inside the html tags. The {{ ... }} placeholders in the file are Handlebars expressions. They will be replaced with the property values of the JSON content file.
 
 
-Once you have the template, the next step is the interesting part. We call the **Handlebars compile** function to process the template *source*. **Handlebars compile** returns a function that accepts a data object as its parameter.
+Once you have the template, the next step is the interesting part. We call the **Handlebars compile** function to process the template *source*. **Handlebars compile** returns a function that accepts a **data object** as its argument.
 
 ```
 <!--Sidenote: We use AJAX to obtain the html text from the greeting.hbs file and assign that html text to the "source" variable -->

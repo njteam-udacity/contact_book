@@ -1,0 +1,47 @@
+{{!-- this partial expects a contact object as its context --}}
+<li class="contact">
+    <div class="container">
+        <div class="form-table">
+                <div class="form-row">
+                    <div class="form-cell"> 
+                        <figure class="avatar">
+                            {{> partials_contact_avatar src=avatarSource alt=name }}
+                        </figure>
+                    </div>
+                    <div class="form-cell">
+                        <div class="name">
+                            <h3 class="contact-name">
+                                <a href="/">{{name}}</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="form-cell">
+                        <div class="details">
+                            <h3 class="contact-email">
+                                <a href="mailto:{{email}}">{{email}}</a>
+                            </h3>
+                        </div>
+                    </div>    
+                    <div class="form-cell">
+                        <div class="details">
+                            <h3 class="contact-phone">
+                                <a href="tel:{{phone}}">{{phone}}</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="form-cell">
+                         <div class="controls">
+                              <button class="control-button edit" action="edit" value="{{id}}">
+                                <i class="fas fa-edit"></i>
+                              </button>
+                              <button class="control-button delete" action="delete" value="{{id}}">
+                                <i class="fas fa-trash-alt"></i>
+                              </button>
+                         </div>
+                    </div>    
+                    <div class="controls">
+                    </div>
+                </div>
+          </div>
+     </div>
+</li>

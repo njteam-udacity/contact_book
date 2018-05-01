@@ -109,9 +109,19 @@
         
     }
 
+    function localStorageListeners () {
+        window.addEventListener('storage', function(e) {
+            
+            alert(e);
+
+        });
+
+    }
+
     app.storage = {
-        setData: setData,
-        getData: getData
+        setData        : setData,
+        getData        : getData,
+        addDataListener: localStorageListeners
     };
 
 })(window.app = window.app || {});
