@@ -41,7 +41,7 @@
 
     /**
      * This function adds event listners to the contact page.
-     * TO Do use target attr value so we can use a switch statement
+     * TODO: use target attr value so we can use a switch statement
      */
     function addContactPageListeners(){
         
@@ -92,7 +92,7 @@
         //was submitted and if an there is an existing image that is different from the default
         //profile image (/assets/images/profile.png).
         //If those conditions are meet then a  thumbnail of the image will render in the thumbnail container.
-        //TO DO use background image see rolodex list. 
+        //TODO: use background image see rolodex list. 
         $("input#avatar").on("change", function (e){
             
             //function adds constraint to for image
@@ -111,7 +111,7 @@
 
     /**
      * Handles user errors. Provides a way to communicate with the user.
-     * TO DO add a nicer overlay to communicate errors.
+     * TODO: add a nicer overlay to communicate errors.
      *@param {string} text that communicates error.  
      * */
     function broacastError(message) {
@@ -209,7 +209,7 @@
      */
     function setContactsInStorage (contactList){
         app.storage.setData(contactList, chkErr(function () {
-            //To do make an overlay to display this message. 
+            //TODO: make an overlay to display this message. 
             refreshContactList(contactList);
         }));
     }
@@ -345,7 +345,7 @@
     }
 
     /**
-     * TO DO Fix this function to output the list template.git 
+     * TODO: Fix this function to output the list template.git 
      * This function makes an xml request to get a list template. It take a content object
      * and outputs a new contact list item.
      * @param {string} partialName 
@@ -360,7 +360,7 @@
     };
 
             // Move contact list into a tabular display table layout
-            //TO DO MOVE FORM DATA Properties TO LOCAL STORAGE
+            //TODO: MOVE FORM DATA Properties TO LOCAL STORAGE
             // delete $(e.target).closest("li").remove();
 
 

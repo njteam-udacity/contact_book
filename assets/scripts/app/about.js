@@ -1,5 +1,5 @@
 (function (app) {
-    // TO DO this mod should be moved to the navigation/header module.
+    // TODO: this mod should be moved to the navigation/header module.
   app.about =  {
       
     addNavigationMod : function () {
